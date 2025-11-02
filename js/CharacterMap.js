@@ -684,25 +684,21 @@ WORD_UTILS.axifyVowelCouples = function(prefix, stem, suffix) {
     stem = CHARACTERS.textToEntriesByAnyText(stem);
     suffix = CHARACTERS.textToEntriesByAnyText(suffix);
     
-    let result = [...prefix];
-    
+    new_prefix = [...prefix]
     if (prefix.length && stem.length && 
         prefix[prefix.length - 1].prop.includes(REG.VOWEL) && 
         stem[0].prop.includes(REG.VOWEL)) {
-        result.push(CHARACTERS.MAP["ax"]);
+        new_prefix.push(CHARACTERS.MAP["ax"]);
     }
     
-    result.push(...stem);
-    
+    new_suffix = [...suffix]
     if (stem.length && suffix.length && 
         stem[stem.length - 1].prop.includes(REG.VOWEL) && 
         suffix[0].prop.includes(REG.VOWEL)) {
-        result.push(CHARACTERS.MAP["ax"]);
+        new_suffix = [CHARACTERS.MAP["ax"], ...new_suffix];
     }
     
-    result.push(...suffix);
-    
-    return CHARACTERS.entriesToText(result);
+    return [CHARACTERS.entriesToText(new_prefix), CHARACTERS.entriesToText(stem), CHARACTERS.entriesToText(new_suffix)]
 }
 
 window.modules.push("CharacterMap")

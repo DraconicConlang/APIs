@@ -679,19 +679,28 @@ CHARACTERS.getPyricEquivalent = (entry) => {
 }
 
 
-WORD_UTILS.axifyVowelCouples = function(text) {
-    text = CHARACTERS.textToEntriesByAnyText(text);
-    let result = [];
+WORD_UTILS.axifyVowelCouples = function(prefix, stem, suffix) {
+    prefix = CHARACTERS.textToEntriesByAnyText(prefix);
+    stem = CHARACTERS.textToEntriesByAnyText(stem);
+    suffix = CHARACTERS.textToEntriesByAnyText(suffix);
     
-    for (let i = 0; i < text.length; i++) {
-        result.push(text[i]);
-        
-        if (i < text.length - 1 && 
-            text[i].prop?.includes(REG.VOWEL) && 
-            text[i + 1].prop?.includes(REG.VOWEL)) {
-            result.push(CHARACTERS.MAP["ax"]);
-        }
+    let result = [...prefix];
+    
+    if (prefix.length && stem.length && 
+        prefix[prefix.length - 1].prop.includes(REG.VOWEL) && 
+        stem[0].prop.includes(REG.VOWEL)) {
+        result.push(CHARACTERS.MAP["ax"]);
     }
+    
+    result.push(...stem);
+    
+    if (stem.length && suffix.length && 
+        stem[stem.length - 1].prop.includes(REG.VOWEL) && 
+        suffix[0].prop.includes(REG.VOWEL)) {
+        result.push(CHARACTERS.MAP["ax"]);
+    }
+    
+    result.push(...suffix);
     
     return CHARACTERS.entriesToText(result);
 }

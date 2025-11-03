@@ -225,9 +225,10 @@ VERBS.PREFIXES.FLAT_MATCHES  = flattenPrefixesMatches(VERBS.PREFIXES.MAP);
 
 VERBS.PREFIXES.FLAT_MATCHES = flattenPrefixesMatches(VERBS.PREFIXES.MAP);
 
-WORD_UTILS.matchAffix = function (input, map, isPrefix = true) {
+WORD_UTILS.matchAffix = function (input, map, isPrefix = true, returnAll = false) {
     if (!input || typeof input !== "string") return null;
 
+    const matches = [];
     let best = null;
     let bestLen = 0;
 
@@ -236,15 +237,20 @@ WORD_UTILS.matchAffix = function (input, map, isPrefix = true) {
         for (const v of variants) {
             if (typeof v !== "string") continue;
             const match = isPrefix ? input.startsWith(v) : input.endsWith(v);
-            if (match && v.length > bestLen) {
+            if (!match) continue;
+
+            if (returnAll) matches.push(val);
+            else if (v.length > bestLen) {
                 best = val;
                 bestLen = v.length;
             }
         }
     }
 
+    if (returnAll) return matches.length ? matches : null;
     return best;
 };
+
 
 
 WORD_UTILS.connectSplit = function(prefix = "", text = "", suffix = "") {

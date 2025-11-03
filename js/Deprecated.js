@@ -1,4 +1,5 @@
 // Strating from November 3rd 2025 there be deprecated features that are out of support
+// If the function wont work in any way, it will be deleted
 console.warn("This module is Deprecated and not recommended to use, its unstable and may have incorrect information!");
 
 WORD_UTILS.matchSuffix = function(input, suffixMap) {

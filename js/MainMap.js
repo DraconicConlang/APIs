@@ -46,7 +46,7 @@ const GENDERS = {
     }
 };
 // USAGE:
-// GENDERS.MAP.X.NAME - Gender X name. GENDERS.MAP.E.NAME -> "Exalted"
+// GENDERS.MAP.E.NAME -> "Exalted"
 // GENDERS.FLAT.NAME -> ["Exalted", "Rational", ...]
 // GENDERS.FLAT.SHORT -> ["e", "r", ...]
 // GENDERS.ANIMATES.AFFECTED -> [{NAME: "Exalted", SHORT: "e"}, ...]

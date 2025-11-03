@@ -147,14 +147,12 @@ CHARACTERS.MAP = {
     letter: "qħ", letter_rom: ["qH"], letter_ipa: "/qˤʰ/", letter_glyph: "\uE00a", letter_discord: ":qH:",
     text: mainText + " " + pyricHText,
     prop: [REG.CONSONANT, REG.PYRIC],
-    table_prop: {"xoffset": -10},
     allophones: {},
     sound: soundPath+"1-4.mp3"
   }),
   "q̇ħón": new Character({ // 11
     name: "q̇ħón",  name_ipa: "/ʡˤʰo̤ˤn̥/",
     letter: "q̇ħ", letter_rom: ["QH"], letter_ipa: "/ʡˤʰ/", letter_glyph: "\uE00b", letter_discord: ":QH:",
-    table_prop: {"xoffset": 3},
     text: mainText + " " + pyricHText,
     prop: [REG.CONSONANT, REG.PYRIC],
     allophones: {},

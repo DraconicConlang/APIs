@@ -370,7 +370,6 @@ CHARACTERS.MAP = {
     letter: "ī", letter_rom: ["ii"], letter_ipa: "/iː/", letter_glyph: "\uE024", letter_discord: ":ii:",
     text: mainText,
     prop: [REG.VOWEL],
-    table_prop: {"xoffset": -12},
     allophones: {},
     sound: soundPath+"6-0.mp3"
   }),

@@ -61,6 +61,19 @@ function getAllValues(obj) {
 // -
 
 
+const WORDCLASSES = {
+    N: { NAME: "Noun", SHORT: "n" },
+    V: { NAME: "Verb", SHORT: "v" },
+    ADJ: { NAME: "Adjective", SHORT: "adj" },
+    ADV: { NAME: "Adverb", SHORT: "adv" },
+    AUX: { NAME: "Auxilary", SHORT: "aux" },
+    PP: { NAME: "Preposition", SHORT: "pp" },
+    P: { NAME: "Particle", SHORT: "p" },
+    PN: { NAME: "Pronoun", SHORT: "pn" },
+    DET: { NAME: "Determiner", SHORT: "det" },
+    CON: { NAME: "Conjunktion", SHORT: "con" },
+}
+
 const NOUNS = {
     MAP: {},
     get FLAT() {
@@ -180,8 +193,9 @@ const ALL_WORDS = {
 }
 
 const WORD_UTILS = {
-    matchSuffix() {},
-    matchPrefix() {},
+    matchSuffix() {console.warn("DEPRECATED");},
+    matchPrefix() {console.warn("DEPRECATED");},
+    matchAffix() {},
     connectSplit() {},
     connect() {},
     connectSuffix() {},

@@ -215,9 +215,7 @@ function flattenPrefixesMatches(prefixesMap) {
         }
     }
 
-    const entries = Object.entries(result);
-    entries.sort((a, b) => b[0].length - a[0].length);
-    return Object.fromEntries(entries);
+    return result;
 }
 
 NOUNS.SUFFIXES.FLAT_MATCHES = flattenSuffixMatches(NOUNS.SUFFIXES.MAP, "n");
@@ -227,35 +225,28 @@ VERBS.PREFIXES.FLAT_MATCHES  = flattenPrefixesMatches(VERBS.PREFIXES.MAP);
 
 VERBS.PREFIXES.FLAT_MATCHES = flattenPrefixesMatches(VERBS.PREFIXES.MAP);
 
-WORD_UTILS.matchSuffix = function(input, suffixMap) {
-    for (const suf in suffixMap) {
-        const [variants] = suffixMap[suf];
-        for (const variant of variants) {
-            if (typeof variant === "string" && input.endsWith(variant)) {
-                return suffixMap[suf];
+WORD_UTILS.matchAffix = function (input, map, isPrefix = true) {
+    if (!input || typeof input !== "string") return null;
+
+    let best = null;
+    let bestLen = 0;
+
+    for (const [key, val] of Object.entries(map)) {
+        const variants = Array.isArray(val) ? val : [key];
+        for (const v of variants) {
+            if (typeof v !== "string") continue;
+            const match = isPrefix ? input.startsWith(v) : input.endsWith(v);
+            if (match && v.length > bestLen) {
+                best = val;
+                bestLen = v.length;
             }
         }
     }
-    return null;
-}
 
-WORD_UTILS.matchPrefix = (input, prefixMap) => {
-    // 1. Извлечение и сортировка ключей при каждом вызове.
-    // Сортировка по убыванию длины гарантирует, что мы найдем самый длинный префикс.
-    const sortedKeys = Object.keys(prefixMap).sort((a, b) => b.length - a.length);
-
-    // 2. Находим самый длинный префикс
-    const matchedPrefix = sortedKeys.find(p => input.startsWith(p));
-
-    if (!matchedPrefix) {
-        return null; // Префикс не найден
-    }
-
-    // 3. Используем найденный префикс для получения данных и возвращаем оба значения
-    const metadata = prefixMap[matchedPrefix];
-
-    return [matchedPrefix, metadata];
+    return best;
 };
+
+
 WORD_UTILS.connectSplit = function(prefix = "", text = "", suffix = "") {
     let text_entries = CHARACTERS.textToEntriesByAnyText(text);
     let prefix_entries = CHARACTERS.textToEntriesByAnyText(prefix);

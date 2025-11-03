@@ -360,7 +360,6 @@ CHARACTERS.MAP = {
     letter: "ū", letter_rom: ["uu"], letter_ipa: "/uː/", letter_glyph: "\uE023", letter_discord: ":uu:",
     text: mainText,
     prop: [REG.VOWEL],
-    table_prop: {"size": 0.9, "xoffset": -14},
     allophones: {"/ṳˁː/ (û)": allophones["pyric"]},
     sound: soundPath+"5-5.mp3"
   }), 

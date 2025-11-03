@@ -243,7 +243,7 @@ CHARACTERS.MAP = {
   "χħáth": new Character({ // 21
     name: "χħáth",  name_ipa: "/χˤʰɑ̤ˤθ/",
     letter: "χħ", letter_rom: ["XH"], letter_ipa: "/χˤʰ/", letter_glyph: "\uE015", letter_discord: ":XH:",
-    table_prop: {"size": 0.9, "xoffset": -22},
+    table_prop: {"size": 1.2},
     text: mainText,
     prop: [REG.CONSONANT, REG.PYRIC],
     allophones: {},
@@ -312,7 +312,6 @@ CHARACTERS.MAP = {
     letter: "o", letter_rom: ["o"], letter_ipa: "/o/", letter_glyph: "\uE01d", letter_discord: ":o_:",
     text: mainText,
     prop: [REG.VOWEL],
-    table_prop: {"size": 0.9, "xoffset": -22},
     allophones: {"/o̤ˤ/ (ó)": allophones["pyric"]},
     sound: soundPath+"4-5.mp3"
   }), 
@@ -414,7 +413,7 @@ CHARACTERS.MAP = {
     letter: "á", letter_rom: ["A"], letter_ipa: "/ɑ̤ˤ/", letter_glyph: "\uE01c\uE028", letter_discord: ":a_::_pyr:",
     text: mainText + " " + pyricVowelText,
     prop: [REG.VOWEL, REG.PYRIC],
-    table_prop: {"size": 0.75, "xoffset": -20},
+    table_prop: {"xoffset": 4},
     sound: soundPath+"6-5.mp3"
   }),
   "ó´": new Character({ // 41
@@ -422,7 +421,7 @@ CHARACTERS.MAP = {
     letter: "ó", letter_rom: ["O"], letter_ipa: "/o̤ˤ/", letter_glyph: "\uE01d\uE028", letter_discord: ":o_::_pyr:",
     text: mainText + " " + pyricVowelText,
     prop: [REG.VOWEL, REG.PYRIC],
-    table_prop: {"size": 0.55, "xoffset": -45},
+    table_prop: {"size": 0.9, "xoffset": -3},
     sound: soundPath+"7-0.mp3"
   }),
 // row 7
@@ -431,7 +430,7 @@ CHARACTERS.MAP = {
     letter: "ú", letter_rom: ["U"], letter_ipa: "/ṳˤ/", letter_glyph: "\uE01e\uE028", letter_discord: ":u_::_pyr:",
     text: mainText + " " + pyricVowelText,
     prop: [REG.VOWEL, REG.PYRIC],
-    table_prop: {"size": 0.70, "xoffset": -15},
+    table_prop: {"size": 1.1, "xoffset": 4},
     sound: soundPath+"7-1.mp3"
   }),
   "â´": new Character({ // 43
@@ -439,7 +438,7 @@ CHARACTERS.MAP = {
     letter: "â", letter_rom: ["AA"], letter_ipa: "/ɑ̤ˤː/", letter_glyph: "\uE021\uE028", letter_discord: ":aa::_pyr:",
     text: mainText + " " + pyricVowelText,
     prop: [REG.VOWEL, REG.PYRIC],
-    table_prop: {"size": 0.75, "xoffset": -20},
+    table_prop: {"xoffset": 5},
     sound: soundPath+"7-2.mp3"
   }),
   "ô´": new Character({ // 44
@@ -447,7 +446,7 @@ CHARACTERS.MAP = {
     letter: "ô", letter_rom: ["OO"], letter_ipa: "/o̤ˤː/", letter_glyph: "\uE022\uE028", letter_discord: ":oo::_pyr:",
     text: mainText + " " + pyricVowelText,
     prop: [REG.VOWEL, REG.PYRIC],
-    table_prop: {"size": 0.75, "xoffset": -20},
+    table_prop: {"size": 1.2, "xoffset": 4},
     sound: soundPath+"7-3.mp3"
   }),
   "û´": new Character({ // 45
@@ -455,7 +454,7 @@ CHARACTERS.MAP = {
     letter: "û", letter_rom: ["UU"], letter_ipa: "/ṳˤː/", letter_glyph: "\uE023\uE028", letter_discord: ":uu::_pyr:",
     text: mainText + " " + pyricVowelText,
     prop: [REG.VOWEL, REG.PYRIC],
-    table_prop: {"size": 0.60, "xoffset": -40},
+    table_prop: {"size": 0.9, "xoffset": -4},
     sound: soundPath+"7-4.mp3"
   }),
   "q̇em": new Character({ // 46
@@ -466,7 +465,7 @@ CHARACTERS.MAP = {
     It can also stand in for the number 0, or proceed a string of letters to indicate that they are numbers.\n
     In shorthand writing, it can also stand in for the word q̇e that means "none"`,
     prop: [REG.DIFFERENT],
-    table_prop: {"size": 0.75, "yoffset": -20},
+    table_prop: {"size": 0.6},
   }),
   "seleŋ": new Character({ // 47
     name: "seleŋ",  name_ipa: "/s̠el̪eŋ/",
@@ -475,7 +474,6 @@ CHARACTERS.MAP = {
     It can however be used as a rough equivalent of a quotation mark or an asterisk. It can optionally be used to mark parentheticals, quotes, proper nouns, or even just for emphasis. \n
     Though it is seldom used in formal writing.`,
     prop: [REG.DIFFERENT],
-    table_prop: {"size": 0.75, "yoffset": 15},
   }),
   //row 8
   "q̇ħóll": new Character({ // 48
@@ -483,7 +481,6 @@ CHARACTERS.MAP = {
     letter: "", letter_rom: [""], letter_ipa: "", letter_glyph: "\uE028", letter_discord: ":_pyr:",
     text: "{name} pronounced {name_ipa} is the symbol representing pyrification it does not do anything in and of its own. It however changes vowels to pyric vowels when placed after one. Pyric letters pronounced are by dragons breathing out fire, humans can use a ligher or stick to alternative sound (see allophones).",
     prop: [REG.SHEET_IGNORE],
-    table_prop: {"size": 0.85, "yoffset": -7},
     allophones: {
       "a pronounced /ɑ/": "á pronounced /ɑ̤ˤ/",
       "o pronounced /o/": "ó pronounced /o̤ˤ/",

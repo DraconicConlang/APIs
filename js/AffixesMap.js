@@ -256,7 +256,7 @@ WORD_UTILS.connectSplit = function(prefix = "", text = "", suffix = "") {
     // const first_text = text_entries[0];
 
     // if (prefix_entries) {
-    //     // No rules?
+    //     // todo: make prefix have ' if theres double vowel
     // }
 
     if (suffix_entries) {

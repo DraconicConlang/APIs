@@ -68,12 +68,11 @@ const WORDCLASSES = {
     ADV: { NAME: "Adverb", SHORT: "adv" },
     AUX: { NAME: "Auxilary", SHORT: "aux" },
     PP: { NAME: "Preposition", SHORT: "pp" },
-    P: { NAME: "Particle", SHORT: "p" },
+    PART: { NAME: "Particle", SHORT: "part" },
     PN: { NAME: "Pronoun", SHORT: "pn" },
     DET: { NAME: "Determiner", SHORT: "det" },
-    CON: { NAME: "Conjunktion", SHORT: "con" },
+    CON: { NAME: "Conjunction", SHORT: "con" },
 }
-
 const NOUNS = {
     MAP: {},
     get FLAT() {

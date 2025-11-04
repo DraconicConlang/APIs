@@ -53,14 +53,14 @@ tr:hover td {
 }
 
 @font-face {
-  font-family: "SegoeUIDrac";
-  src: url("/font/SegoeUIDrac.ttf") format("truetype");
+  font-family: "Draconic";
+  src: url("https://liroxdeyamon.github.io/DraconicAPIs/font/RegularDraconic.ttf") format("truetype");
 }
 
 .glyph {
-  font-family: "SegoeUIDrac", sans-serif;
+  font-family: "Draconic", sans-serif;
   color: var(--accent);
-  font-size: 100px;
+  font-size: 150px;
 }
 
 .glyph-wrapper {

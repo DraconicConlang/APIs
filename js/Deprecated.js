@@ -27,3 +27,17 @@ WORD_UTILS.matchPrefix = (input, prefixMap) => {
 
     return [matchedPrefix, metadata];
 };
+
+WORD_UTILS.axifyVowelCouples = function(prefix, stem, suffix) {
+    prefix = CHARACTERS.textToEntriesByAnyText(prefix);
+    stem = CHARACTERS.textToEntriesByAnyText(stem);
+    suffix = CHARACTERS.textToEntriesByAnyText(suffix);
+    
+    new_prefix = [...prefix]
+    if (prefix.length && stem.length && 
+        prefix[prefix.length - 1].prop.includes(REG.VOWEL) && 
+        stem[0].prop.includes(REG.VOWEL)) {
+        new_prefix.push(CHARACTERS.MAP["ax"]);
+    }
+    return [CHARACTERS.entriesToText(new_prefix), CHARACTERS.entriesToText(stem), CHARACTERS.entriesToText(suffix)]
+}

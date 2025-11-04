@@ -143,7 +143,6 @@ function flattenSuffixMatches(suffixes, type) {
             
             if (entries && entries.length) {
                 const firstEntry = entries[0];
-                
                 if (firstEntry.prop && firstEntry.prop.includes(REG.OPTIONAL)) {
                     variants.push(CHARACTERS.entriesToText(entries));
                     variants.push(CHARACTERS.entriesToText(entries, true));
@@ -205,8 +204,13 @@ function flattenPrefixesMatches(prefixesMap) {
         for (const numberKey in numbers) {
             const genders = numbers[numberKey];
             for (const genderKey in genders) {
+                variants = []
+                entries = CHARACTERS.textToEntriesByText(genders[genderKey])
+                const lastEntry = entries[entries.length - 1];
+                if (lastEntry.prop.includes(REG.VOWEL)) variants.push(genders[genderKey]+CHARACTERS.MAP["ax"].letter)
+                variants.push(genders[genderKey])
                 result[genders[genderKey]] = [
-                    genders[genderKey],
+                    variants,
                     Number(personKey),
                     numberKey,         
                     genderKey
@@ -233,7 +237,7 @@ WORD_UTILS.matchAffix = function (input, map, isPrefix = true, returnAll = false
     let bestLen = 0;
 
     for (const [key, val] of Object.entries(map)) {
-        const variants = Array.isArray(val) ? val : [key];
+        const variants = Array.isArray(val[0]) ? val[0] : [key];
         for (const v of variants) {
             if (typeof v !== "string") continue;
             const match = isPrefix ? input.startsWith(v) : input.endsWith(v);
@@ -257,15 +261,20 @@ WORD_UTILS.connectSplit = function(prefix = "", text = "", suffix = "") {
     let text_entries = CHARACTERS.textToEntriesByAnyText(text);
     let prefix_entries = CHARACTERS.textToEntriesByAnyText(prefix);
     let suffix_entries = CHARACTERS.textToEntriesByAnyText(suffix);
-    if (!text_entries) return [];
-    const last_text = text_entries[text_entries.length - 1];
-    // const first_text = text_entries[0];
 
-    // if (prefix_entries) {
-    //     // todo: make prefix have ' if theres double vowel
-    // }
+    if (!text_entries) return [];
+
+    if (prefix_entries) {
+        const first_text = text_entries[0];
+        const last_prefix = prefix_entries[prefix_entries.length - 1];
+        if (last_prefix && last_prefix.prop.includes(window.REG.VOWEL) && first_text.prop.includes(window.REG.VOWEL) ) {
+            prefix_entries.push(CHARACTERS.MAP["ax"])
+        }
+        
+    }
 
     if (suffix_entries) {
+        const last_text = text_entries[text_entries.length - 1];
         let first_suffix = suffix_entries[0];
 
         if (first_suffix) {

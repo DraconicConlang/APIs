@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   background: hsl(var(--accent_hue), 100%, 4%);
   color: #e6eaf2;
-  font-family: Inter, system-ui, Roboto, Arial;
+  /* font-family: Inter, system-ui, Roboto, Arial; */
   accent-color: hsl(var(--accent_hue), 100%, 30%);
 }
 

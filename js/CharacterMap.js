@@ -510,7 +510,7 @@ Object.entries(CHARACTERS.MAP).forEach(([key, value]) => {
 });
 
 
-CHARACTERS.randomCharacter = function(vowels = true, consonants = true, pyric_vowels = true, pyric_consonants = true) {
+CHARACTERS.random = function(vowels = true, consonants = true, pyric_vowels = true, pyric_consonants = true) {
   const pool = [];
 
   for (const e of CHARACTERS) {
@@ -526,83 +526,45 @@ CHARACTERS.randomCharacter = function(vowels = true, consonants = true, pyric_vo
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-function entriesFromField(text, fieldNames, filter_brackets = false) {
+function entriesFromField(text, fieldNames) {
   const result = [];
   let i = 0;
-
+  let inParen = false;
+  
   while (i < text.length) {
-    let best = null;
-    let bestValLen = -1;
-    let bestAdvance = 0;
-    let bestIsParenthesized = false;
-
+    if (text[i] === '(') { inParen = true; i++; continue; }
+    if (text[i] === ')') { inParen = false; i++; continue; }
+    
+    let best = null, bestLen = 0;
+    
     for (const e of CHARACTERS.FLAT) {
-      for (const field of fieldNames) {
-        const values = Array.isArray(e[field]) ? e[field] : [e[field]];
-        for (const val of values) {
-          if (!val) continue;
-
-          const valLen = val.length;
-          
-          const plainSlice = text.slice(i, i + valLen);
-          if (plainSlice === val) {
-            const advance = valLen;
-            if (valLen > bestValLen || (valLen === bestValLen && advance > bestAdvance)) {
-              const match = { ...e };
-              match._advance = advance;
-              match._isParenthesized = false;
-              best = match;
-              bestValLen = valLen;
-              bestAdvance = advance;
-              bestIsParenthesized = false;
-            }
+      for (const f of fieldNames) {
+        const fv = e[f];
+        const vals = Array.isArray(fv) ? fv : (fv ? [fv] : []);
+        for (const v of vals) {
+          if (v.length <= bestLen || text[i] !== v[0] || i + v.length > text.length) continue;
+          let match = true;
+          for (let c = 1; c < v.length; c++) {
+            if (text[i + c] !== v[c]) { match = false; break; }
           }
-
-          if (i < text.length - valLen - 1 && text[i] === "(") {
-            const parenSlice = text.slice(i, i + valLen + 2);
-            if (parenSlice[parenSlice.length - 1] === ")" && 
-                parenSlice.slice(1, 1 + valLen) === val) {
-              
-              const advance = valLen + 2;
-              const match = { ...e };
-              match.prop = [...(match.prop || []), REG.OPTIONAL];
-              match._advance = advance;
-              match._isParenthesized = true;
-              
-              const isBetter = valLen > bestValLen || 
-                             (valLen === bestValLen && advance > bestAdvance) ||
-                             (valLen === bestValLen && bestIsParenthesized === false);
-              
-              if (isBetter) {
-                best = match;
-                bestValLen = valLen;
-                bestAdvance = advance;
-                bestIsParenthesized = true;
-              }
-            }
-          }
+          if (match) { best = e; bestLen = v.length; }
         }
       }
     }
-
+    
     if (best) {
-      const advance = best._advance;
-      delete best._advance;
-      
-      if (filter_brackets && best._isParenthesized) {
-        delete best._isParenthesized;
-        result.push(best);
+      if (inParen) {
+        const m = { ...best, prop: [...(best.prop || []), REG.OPTIONAL] };
+        result.push(m);
       } else {
-        delete best._isParenthesized;
         result.push(best);
-      } // tff???????
-      
-      i += advance;
+      }
+      i += bestLen;
     } else {
       i++;
     }
   }
-
+  
   return result;
 }
 
@@ -619,7 +581,7 @@ function getEntryByField(text, field, arrayField = false) {
             }
         }
     }
-    return match;
+    return match; // ????
 }
 
 CHARACTERS.textToEntriesByAnyText = text =>
@@ -669,21 +631,6 @@ CHARACTERS.getPyricEquivalent = (entry) => {
         e.prop.includes(REG.PYRIC) &&
         e.letter_rom.some(l => l.toLowerCase() === entry.letter_rom[0].toLowerCase())
     ) || null;
-}
-
-
-WORD_UTILS.axifyVowelCouples = function(prefix, stem, suffix) {
-    prefix = CHARACTERS.textToEntriesByAnyText(prefix);
-    stem = CHARACTERS.textToEntriesByAnyText(stem);
-    suffix = CHARACTERS.textToEntriesByAnyText(suffix);
-    
-    new_prefix = [...prefix]
-    if (prefix.length && stem.length && 
-        prefix[prefix.length - 1].prop.includes(REG.VOWEL) && 
-        stem[0].prop.includes(REG.VOWEL)) {
-        new_prefix.push(CHARACTERS.MAP["ax"]);
-    }
-    return [CHARACTERS.entriesToText(new_prefix), CHARACTERS.entriesToText(stem), CHARACTERS.entriesToText(suffix)]
 }
 
 window.modules.push("CharacterMap")

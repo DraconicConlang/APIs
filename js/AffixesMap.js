@@ -132,102 +132,117 @@ const PRONOUNS = {
 
 function flattenSuffixMatches(suffixes, type) {
     const result = {};
-
-    function processForms(forms, moodOrPerson, genderKey, numberKey) {
-        for (const formKey in forms) {
-            const suf = forms[formKey];
-            if (!suf) continue;
-
-            let variants = [];
-            const entries = CHARACTERS.textToEntriesByAnyText(suf);
-            
-            if (entries && entries.length) {
-                const firstEntry = entries[0];
-                if (firstEntry.prop && firstEntry.prop.includes(REG.OPTIONAL)) {
-                    variants.push(CHARACTERS.entriesToText(entries));
-                    variants.push(CHARACTERS.entriesToText(entries, true));
-                } else if (firstEntry.prop && firstEntry.prop.includes(REG.VOWEL)) {
-                    variants.push(suf);
-                    const pyric = CHARACTERS.getPyricEquivalent(firstEntry);
-                    if (pyric != null) {
-                        variants.push(CHARACTERS.entriesToText([pyric, ...entries.slice(1)]));
+    const isNoun = type === "n";
+    
+    const suffixPaths = {};
+    
+    if (isNoun) {
+        for (const mood in suffixes) {
+            for (const gender in suffixes[mood]) {
+                for (const num in suffixes[mood][gender]) {
+                    for (const decl in suffixes[mood][gender][num]) {
+                        const suf = suffixes[mood][gender][num][decl];
+                        if (!suf) continue;
+                        
+                        if (!suffixPaths[suf]) {
+                            suffixPaths[suf] = { mood, gender, numbers: new Set(), declensions: new Set() };
+                        }
+                        suffixPaths[suf].numbers.add(num);
+                        suffixPaths[suf].declensions.add(Number(decl));
                     }
-                } else {
-                    variants.push(suf);
                 }
+            }
+        }
+    } else {
+        for (const person in suffixes) {
+            for (const num in suffixes[person]) {
+                for (const gender in suffixes[person][num]) {
+                    const suf = suffixes[person][num][gender];
+                    if (!suf) continue;
+                    
+                    if (!suffixPaths[suf]) {
+                        suffixPaths[suf] = { person: Number(person), gender, numbers: new Set() };
+                    }
+                    suffixPaths[suf].numbers.add(num);
+                }
+            }
+        }
+    }
+    
+    for (const suf in suffixPaths) {
+        const entries = CHARACTERS.textToEntriesByAnyText(suf);
+        let variants;
+        
+        if (entries?.length) {
+            const firstEntry = entries[0];
+            if (firstEntry.prop?.includes(REG.OPTIONAL)) {
+                variants = [CHARACTERS.entriesToText(entries, true), CHARACTERS.entriesToText(entries)];
+            } else if (firstEntry.prop?.includes(REG.VOWEL)) {
+                const pyric = CHARACTERS.getPyricEquivalent(firstEntry);
+                variants = pyric != null 
+                    ? [suf, CHARACTERS.entriesToText([pyric, ...entries.slice(1)])]
+                    : [suf];
             } else {
-                console.warn(`Could not parse suffix: ${suf}`);
-                variants.push(suf);
+                variants = [suf];
             }
-
-            const declensions = type === "n"
-                ? Object.entries(forms).filter(([_, val]) => val === suf).map(([key]) => Number(key))
-                : [Number(moodOrPerson)];
-
-            const highestNumber = forms[IDS.NUMBERS.P] === suf ? IDS.NUMBERS.P : numberKey;
-
-            result[suf] = [variants, declensions, type, moodOrPerson, genderKey, highestNumber];
+        } else {
+            console.warn(`Could not parse suffix: ${suf}`);
+            variants = [suf];
         }
+        
+        const path = suffixPaths[suf];
+        const numbers = Array.from(path.numbers);
+        
+        result[suf] = isNoun
+            ? [variants, [path.mood, path.gender, numbers, Array.from(path.declensions).sort((a, b) => a - b)], "n"]
+            : [variants, [path.person, numbers, path.gender], "v"];
     }
-
-    if (type === "n") {
-        for (const moodKey in suffixes) {
-            const genders = suffixes[moodKey];
-            for (const genderKey in genders) {
-                const numbers = genders[genderKey];
-                for (const numberKey in numbers) {
-                    processForms(numbers[numberKey], moodKey, genderKey, numberKey);
-                }
-            }
-        }
-    } else if (type === "v") {
-        for (const personKey in suffixes) {
-            const numbers = suffixes[personKey];
-            for (const numberKey in numbers) {
-                const genders = numbers[numberKey];
-                for (const genderKey in genders) {
-                    const singleForm = { [personKey]: genders[genderKey] };
-                    processForms(singleForm, personKey, genderKey, numberKey);
-                }
-            }
-        }
-    }
-
+    
     return result;
 }
 
-function flattenPrefixesMatches(prefixesMap) {
+function flattenPrefixMatches(prefixesMap) {
     const result = {};
-
-    for (const personKey in prefixesMap) {
-        const numbers = prefixesMap[personKey];
-        for (const numberKey in numbers) {
-            const genders = numbers[numberKey];
-            for (const genderKey in genders) {
-                variants = []
-                entries = CHARACTERS.textToEntriesByText(genders[genderKey])
-                const lastEntry = entries[entries.length - 1];
-                if (lastEntry.prop.includes(REG.VOWEL)) variants.push(genders[genderKey]+CHARACTERS.MAP["ax"].letter)
-                variants.push(genders[genderKey])
-                result[genders[genderKey]] = [
-                    variants,
-                    Number(personKey),
-                    numberKey,         
-                    genderKey
-                ];;
+    const prefixPaths = {};
+    
+    for (const person in prefixesMap) {
+        for (const num in prefixesMap[person]) {
+            for (const gender in prefixesMap[person][num]) {
+                const prefix = prefixesMap[person][num][gender];
+                if (!prefix) continue;
+                
+                if (!prefixPaths[prefix]) {
+                    prefixPaths[prefix] = { person: Number(person), gender, numbers: new Set() };
+                }
+                prefixPaths[prefix].numbers.add(num);
             }
         }
     }
-
+    
+    for (const prefix in prefixPaths) {
+        const entries = CHARACTERS.textToEntriesByAnyText(prefix);
+        let variants;
+        
+        if (entries?.length) {
+            const lastEntry = entries[entries.length - 1];
+            variants = lastEntry.prop?.includes(REG.VOWEL)
+                ? [prefix + CHARACTERS.MAP["ax"].letter, prefix]
+                : [prefix];
+        } else {
+            variants = [prefix];
+        }
+        
+        const path = prefixPaths[prefix];
+        result[prefix] = [variants, [path.person, Array.from(path.numbers), path.gender]];
+    }
+    
     return result;
 }
 
 NOUNS.SUFFIXES.FLAT_MATCHES = flattenSuffixMatches(NOUNS.SUFFIXES.MAP, "n");
 ADJECTIVES.SUFFIXES.FLAT_MATCHES = NOUNS.SUFFIXES.FLAT_MATCHES;
 VERBS.SUFFIXES.FLAT_MATCHES  = flattenSuffixMatches(VERBS.SUFFIXES.MAP, "v");
-VERBS.PREFIXES.FLAT_MATCHES  = flattenPrefixesMatches(VERBS.PREFIXES.MAP);
-
-VERBS.PREFIXES.FLAT_MATCHES = flattenPrefixesMatches(VERBS.PREFIXES.MAP);
+VERBS.PREFIXES.FLAT_MATCHES  = flattenPrefixMatches(VERBS.PREFIXES.MAP);
 
 WORD_UTILS.matchAffix = function (input, map, isPrefix = true, returnAll = false) {
     if (!input || typeof input !== "string") return null;

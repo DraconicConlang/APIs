@@ -208,7 +208,7 @@ const CHARACTERS = {
         return Object.values(this.MAP);
     },
 
-    randomCharacter() {},
+    random() {},
 
     textToEntriesByAnyText() {},
     textToEntriesByText() {},

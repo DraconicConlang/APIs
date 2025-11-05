@@ -214,12 +214,12 @@ const CHARACTERS = {
     textToEntriesByText() {},
     textToEntriesByRom() {},
     textToEntriesByDiscord() {},
-    textToEntriesByGlyph() {},
+    textToEntriesByGlyphs() {},
 
     entriesToText() {},
     entriesToRom() {},
     entriesToDiscord() {},
-    entriesToGlyph() {},
+    entriesToGlyphs() {},
 
     getPyricEquivalent() {}
 }

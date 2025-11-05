@@ -568,21 +568,23 @@ function entriesFromField(text, fieldNames) {
   return result;
 }
 
-function getEntryByField(text, field, arrayField = false) {
-    let match = null;
-    let matchLength = 0;
-    for (const e of CHARACTERS.FLAT) {
-        const values = arrayField ? e[field] || [] : [e[field]];
-        for (const val of values) {
-            if (!val) continue;
-            if (text.startsWith(val) && val.length > matchLength) {
-                match = e;
-                matchLength = val.length;
-            }
-        }
+function getEntryByField(text, field) {
+  let match = null
+  let matchLength = 0
+  for (const e of CHARACTERS.FLAT) {
+    const value = e[field]
+    const values = Array.isArray(value) ? value : [value]
+    for (const val of values) {
+      if (!val) continue
+      if (text.startsWith(val) && val.length > matchLength) {
+        match = e
+        matchLength = val.length
+      }
     }
-    return match; // ????
+  }
+  return match
 }
+
 
 CHARACTERS.textToEntriesByAnyText = text =>
     entriesFromField(text, ["letter", "letter_rom", "letter_discord", "letter_glyph"]);
@@ -608,7 +610,7 @@ CHARACTERS.entriesToText = (entries, ignore_optional = false) =>
 CHARACTERS.entriesToRom = (entries, ignore_optional = false) =>
   entries
     .filter(e => !(ignore_optional && e.prop?.includes(REG.OPTIONAL)))
-    .map(e => e.letter_rom || "")
+    .map(e => e.letter_rom[0] || "")
     .join("");
 
 

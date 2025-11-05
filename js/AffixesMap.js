@@ -176,7 +176,7 @@ function flattenSuffixMatches(suffixes, type) {
         if (entries?.length) {
             const firstEntry = entries[0];
             if (firstEntry.prop?.includes(REG.OPTIONAL)) {
-                variants = [CHARACTERS.entriesToText(entries, true), CHARACTERS.entriesToText(entries)];
+                variants = [CHARACTERS.entriesToText(entries), CHARACTERS.entriesToText(entries, true)];
             } else if (firstEntry.prop?.includes(REG.VOWEL)) {
                 const pyric = CHARACTERS.getPyricEquivalent(firstEntry);
                 variants = pyric != null 
@@ -194,8 +194,8 @@ function flattenSuffixMatches(suffixes, type) {
         const numbers = Array.from(path.numbers);
         
         result[suf] = isNoun
-            ? [variants, [path.mood, path.gender, numbers, Array.from(path.declensions).sort((a, b) => a - b)], "n"]
-            : [variants, [path.person, numbers, path.gender], "v"];
+            ? [suf, variants, [path.mood, path.gender, numbers, Array.from(path.declensions).sort((a, b) => a - b)], "n"]
+            : [suf, variants, [path.person, numbers, path.gender], "v"];
     }
     
     return result;
@@ -233,7 +233,7 @@ function flattenPrefixMatches(prefixesMap) {
         }
         
         const path = prefixPaths[prefix];
-        result[prefix] = [variants, [path.person, Array.from(path.numbers), path.gender]];
+        result[prefix] = [prefix, variants, [path.person, Array.from(path.numbers), path.gender], "v"];
     }
     
     return result;
@@ -252,7 +252,7 @@ WORD_UTILS.matchAffix = function (input, map, isPrefix = true, returnAll = false
     let bestLen = 0;
 
     for (const [key, val] of Object.entries(map)) {
-        const variants = Array.isArray(val[0]) ? val[0] : [key];
+        const variants = Array.isArray(val[1]) ? val[1] : [key];
         for (const v of variants) {
             if (typeof v !== "string") continue;
             const match = isPrefix ? input.startsWith(v) : input.endsWith(v);

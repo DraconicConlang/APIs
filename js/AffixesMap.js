@@ -126,7 +126,7 @@ VERBS.SUFFIXES.MAP = {
     }
 }
 
-PRONOUNS.MAP = {
+PRONOUNS = {
     [GENDERS.MAP.E.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "xēn", oblique: "xon" }, 2: { subject: "syn", oblique: "sun" }, 3: { subject: "tēn", oblique: "tôn" } },
         [IDS.NUMBERS.D]: { 1: { subject: "xefyn", oblique: "xō'æ­n" }, 2: { subject: "sônen", oblique: "sônēn" }, 3: { subject: "toq̇án", oblique: "toq̇ân" } },
@@ -138,29 +138,26 @@ PRONOUNS.MAP = {
         [IDS.NUMBERS.P]: { 1: { subject: "hēf", oblique: "he'æf" }, 2: { subject: "thâllif", oblique: "tháħáf" }, 3: { subject: "tyf", oblique: "tūq̇llif" } }
     },
     [GENDERS.MAP.MON.NAME]: {
-        [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
+        [IDS.NUMBERS.S]: { 1: { subject: "χħô", oblique: "xūħó" }, 2: { subject: "sô", oblique: "sūħó" }, 3: { subject: "tô", oblique: "tōħó" } },
+        [IDS.NUMBERS.D]: { 1: { subject: "χħôfó", oblique: "xo'ô" }, 2: { subject: "sónq̇ħô", oblique: "sônô" }, 3: { subject: "tyq̇âq̇ħó", oblique: "tyq̇âħó" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "hô", oblique: "he'ô" }, 2: { subject: "thâq̇ħô", oblique: "thâħó" }, 3: { subject: "tūħó", oblique: "tūħó" } }
     },
     [GENDERS.MAP.I.NAME]: {
-        [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
+        [IDS.NUMBERS.S]: { 1: { subject: "xellūl", oblique: "xullūl" }, 2: { subject: "sucūl", oblique: "sillūl" }, 3: { subject: "tócūl", oblique: "tôllūl" } },
+        [IDS.NUMBERS.D]: { 1: { subject: "hyllūl", oblique: "hellūl	" }, 2: { subject: "sóncūl", oblique: "sónllūl" }, 3: { subject: "tyq̇ácūl", oblique: "tyq̇állūl" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "hyllūl", oblique: "hellūl	" }, 2: { subject: "thâcūl", oblique: "thâllūl" }, 3: { subject: "tīllūl", oblique: "tûcūl" } }
     },
     [GENDERS.MAP.MAG.NAME]: {
-        [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
+        [IDS.NUMBERS.S]: { 1: { subject: "xōχ", oblique: "xūχ" }, 2: { subject: "sōχ", oblique: "sūχ" }, 3: { subject: "toħúχ", oblique: "tōħúχ" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "hōχ", oblique: "hūχ" }, 2: { subject: "thâhuχ	", oblique: "fônōχ" }, 3: { subject: "tūχ", oblique: "tūħúχ" } }
     },
     [GENDERS.MAP.MUN.NAME]: {
-        [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
+        [IDS.NUMBERS.S]: { 1: { subject: "xerk", oblique: "χūrk" }, 2: { subject: "surk", oblique: "thârk" }, 3: { subject: "tork", oblique: "târk" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "herk", oblique: "hārk" }, 2: { subject: "surk", oblique: "thârk" }, 3: { subject: "tūrk", oblique: "tūrk" } }
     },
     [GENDERS.MAP.A.NAME]: {
-        [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
+        [IDS.NUMBERS.S]: { 1: { subject: "xyq̇", oblique: "xyq̇" }, 2: { subject: "sūq̇", oblique: "sūq̇" }, 3: { subject: "tōq̇", oblique: "tōħûq̇" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "hyq̇", oblique: "hyq̇" }, 2: { subject: "thâq̇", oblique: "thâq̇" }, 3: { subject: "tūq̇", oblique: "tūq̇" } }
     }
 }
 

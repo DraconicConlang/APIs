@@ -85,8 +85,8 @@ const NOUNS = {
         },
         FLAT_MATCHES: {}
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const VERBS = {
@@ -108,8 +108,8 @@ const VERBS = {
         },
         FLAT_MATCHES: {}
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const ADJECTIVES = {
@@ -124,8 +124,8 @@ const ADJECTIVES = {
         },
         FLAT_MATCHES: {}
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const ADVERBS = {
@@ -133,8 +133,8 @@ const ADVERBS = {
     get FLAT() {
         return Object.values(this.MAP);
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const AUXILIARIES = {
@@ -142,8 +142,8 @@ const AUXILIARIES = {
     get FLAT() {
         return Object.values(this.MAP);
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const PREPOSITIONS = {
@@ -151,8 +151,8 @@ const PREPOSITIONS = {
     get FLAT() {
         return Object.values(this.MAP);
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const PARTICLES = {
@@ -160,8 +160,8 @@ const PARTICLES = {
     get FLAT() {
         return Object.values(this.MAP);
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const DETERMINERS = {
@@ -169,8 +169,8 @@ const DETERMINERS = {
     get FLAT() {
         return Object.values(this.MAP);
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const CONJUNCTIONS = {
@@ -178,8 +178,16 @@ const CONJUNCTIONS = {
     get FLAT() {
         return Object.values(this.MAP);
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
+}
+const PRONOUNS = {
+    MAP: {},
+    get FLAT() {
+        return Object.values(this.MAP);
+    },
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const ALL_WORDS = {
@@ -187,19 +195,19 @@ const ALL_WORDS = {
     get FLAT() {
         return Object.values(this.MAP);
     },
-    fetch() {},
-    fetchByDefinition() {}
+    fetch() { },
+    fetchByDefinition() { }
 }
 
 const WORD_UTILS = {
-    matchSuffix() {console.warn("DEPRECATED");},
-    matchPrefix() {console.warn("DEPRECATED");},
-    matchAffix() {},
-    connectSplit() {},
-    connect() {},
-    connectSuffix() {},
-    connectPrefix() {},
-    combineGenders() {}
+    matchSuffix() { console.warn("DEPRECATED"); },
+    matchPrefix() { console.warn("DEPRECATED"); },
+    matchAffix() { },
+    connectSplit() { },
+    connect() { },
+    connectSuffix() { },
+    connectPrefix() { },
+    combineGenders() { }
 }
 
 const CHARACTERS = {
@@ -208,27 +216,27 @@ const CHARACTERS = {
         return Object.values(this.MAP);
     },
 
-    random() {},
+    random() { },
 
-    textToEntriesByAnyText() {},
-    textToEntriesByText() {},
-    textToEntriesByRom() {},
-    textToEntriesByDiscord() {},
-    textToEntriesByGlyphs() {},
+    textToEntriesByAnyText() { },
+    textToEntriesByText() { },
+    textToEntriesByRom() { },
+    textToEntriesByDiscord() { },
+    textToEntriesByGlyphs() { },
 
-    entriesToText() {},
-    entriesToRom() {},
-    entriesToDiscord() {},
-    entriesToGlyphs() {},
+    entriesToText() { },
+    entriesToRom() { },
+    entriesToDiscord() { },
+    entriesToGlyphs() { },
 
-    getPyricEquivalent() {}
+    getPyricEquivalent() { }
 }
 
 const NUMBERS = {
     // uhhhhhh
 
-    numberToText() {},
-    textToNumber() {}
+    numberToText() { },
+    textToNumber() { }
 }
 
 const IDS = {
@@ -249,11 +257,11 @@ const IDS = {
 
 // REGistry
 REG = (() => {
-  let counter = 0;
-  function auto() {
-    return ++counter;
-  }
-  return { auto };
+    let counter = 0;
+    function auto() {
+        return ++counter;
+    }
+    return { auto };
 })();
 
 REG.VOWEL = REG.auto();

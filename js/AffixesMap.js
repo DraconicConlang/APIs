@@ -126,7 +126,7 @@ VERBS.SUFFIXES.MAP = {
     }
 }
 
-const PRONOUNS = {
+PRONOUNS.MAP = {
     [GENDERS.MAP.E.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "xēn", oblique: "xon" }, 2: { subject: "syn", oblique: "sun" }, 3: { subject: "tēn", oblique: "tôn" } },
         [IDS.NUMBERS.D]: { 1: { subject: "xefyn", oblique: "xō'æ­n" }, 2: { subject: "sônen", oblique: "sônēn" }, 3: { subject: "toq̇án", oblique: "toq̇ân" } },

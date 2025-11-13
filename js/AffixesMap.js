@@ -130,38 +130,38 @@ const PRONOUNS = {
     [GENDERS.MAP.E.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "xēn", oblique: "xon" }, 2: { subject: "syn", oblique: "sun" }, 3: { subject: "tēn", oblique: "tôn" } },
         [IDS.NUMBERS.D]: { 1: { subject: "xefyn", oblique: "xō'æ­n" }, 2: { subject: "sônen", oblique: "sônēn" }, 3: { subject: "toq̇án", oblique: "toq̇ân" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "hēn", oblique: "he'æ­n" }, 2: { subject: "tháħán", oblique: "thâħen" }, 3: { subject: "tun", oblique: "tūn" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "hēn", oblique: "he'æ­n" }, 2: { subject: "tháħán", oblique: "thâħen" }, 3: { subject: "tun", oblique: "tūn" } }
     },
     [GENDERS.MAP.R.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "xēf", oblique: "xyf" }, 2: { subject: "syf", oblique: "suf" }, 3: { subject: "toq̇llif", oblique: "tôħyf" } },
         [IDS.NUMBERS.D]: { 1: { subject: "xef", oblique: "xō'æf" }, 2: { subject: "sônllif", oblique: "sônēf" }, 3: { subject: "toq̇âf", oblique: "toq̇ħáf" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "hēf", oblique: "he'æf" }, 2: { subject: "thâllif", oblique: "tháħáf" }, 3: { subject: "tyf", oblique: "tūq̇llif" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "hēf", oblique: "he'æf" }, 2: { subject: "thâllif", oblique: "tháħáf" }, 3: { subject: "tyf", oblique: "tūq̇llif" } }
     },
     [GENDERS.MAP.M.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
         [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
     },
     [GENDERS.MAP.I.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
         [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
     },
     [GENDERS.MAP.MAG.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
         [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
     },
     [GENDERS.MAP.MUN.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
         [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
+        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
     },
     [GENDERS.MAP.A.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
         [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
-    },
+        [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }
+    }
 }
 
 function flattenSuffixMatches(suffixes, type) {

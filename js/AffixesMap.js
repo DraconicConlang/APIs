@@ -137,7 +137,7 @@ PRONOUNS.MAP = {
         [IDS.NUMBERS.D]: { 1: { subject: "xef", oblique: "xō'æf" }, 2: { subject: "sônllif", oblique: "sônēf" }, 3: { subject: "toq̇âf", oblique: "toq̇ħáf" } },
         [IDS.NUMBERS.P]: { 1: { subject: "hēf", oblique: "he'æf" }, 2: { subject: "thâllif", oblique: "tháħáf" }, 3: { subject: "tyf", oblique: "tūq̇llif" } }
     },
-    [GENDERS.MAP.M.NAME]: {
+    [GENDERS.MAP.MON.NAME]: {
         [IDS.NUMBERS.S]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
         [IDS.NUMBERS.D]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } },
         [IDS.NUMBERS.P]: { 1: { subject: "", oblique: "" }, 2: { subject: "", oblique: "" }, 3: { subject: "", oblique: "" } }

@@ -72,6 +72,7 @@ const WORDCLASSES = {
     PN: { NAME: "Pronoun", SHORT: "pn" },
     DET: { NAME: "Determiner", SHORT: "det" },
     CON: { NAME: "Conjunction", SHORT: "con" },
+    COR: { NAME: "Correlative", SHORT: "cor" }
 }
 const NOUNS = {
     MAP: {},
@@ -165,24 +166,12 @@ const PARTICLES = {
 }
 
 const DETERMINERS = {
-    REGULARS: {
-        MAP: {},
-        get FLAT() {
-            return Object.values(this.MAP);
-        },
-    },
-    SUFFIXES: {
-        MAP: {},
-    },
-    IRREGULARS: {
-        MAP: {},
+    MAP: {},
+    get FLAT() {
+        return Object.values(this.MAP);
     },
     fetch() { },
     fetchByDefinition() { }
-}
-
-const CORRELATIVES = {
-    MAP: {}
 }
 
 const CONJUNCTIONS = {
@@ -200,10 +189,6 @@ const PRONOUNS = {
     },
     fetch() { },
     fetchByDefinition() { }
-}
-
-const LUR = {
-    MAP: {}
 }
 
 const ALL_WORDS = {
@@ -263,32 +248,11 @@ const IDS = {
     },
     TARGETS: {
         S: "Subject",
-        O: "Object",
+        O: "Oblique",
     },
     MOODS: {
         D: "Directive",
         R: "Recessive",
-    },
-    DET_TYPES: {
-        NA: 'Negative-Article',
-        DA: 'Definite-Article',
-        PDEM: 'Proximal-Demonstrative',
-        DDEM: 'Distal-Demonstrative',
-    },
-    COR_TYPES: {
-        INT: 'Interrogative',
-        R: 'Relative',
-        COR: 'Correlative',
-        PDEM: 'Proximal-Demonstrative',
-        DDEM: 'Distal-Demonstrative',
-    },
-    ASPECT: {
-        E: 'Episodic',
-        G: 'Gnomic'
-    },
-    TENSE: {
-        P: 'Past',
-        NP: 'Non-Past'
     }
 }
 

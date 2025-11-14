@@ -89,6 +89,9 @@ NOUNS.SUFFIXES.MAP = {
 }
 
 ADJECTIVES.SUFFIXES.MAP = NOUNS.SUFFIXES.MAP;
+for(key of Object.values(ADJECTIVES.SUFFIXES.FLAT_MATCHES)){
+    if(key[3] === 'n'){key[3] = 'adj'}
+}
 
 VERBS.PREFIXES.MAP = {
     1: {

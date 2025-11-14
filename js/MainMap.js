@@ -247,7 +247,7 @@ const IDS = {
     },
     TARGETS: {
         S: "Subject",
-        O: "Object",
+        O: "Oblique",
     },
     MOODS: {
         D: "Directive",

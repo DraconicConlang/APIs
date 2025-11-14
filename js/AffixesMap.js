@@ -279,8 +279,8 @@ CORRELATIVES.MAP = {
 }
 
 LUR.MAP = {
-    [ASPECT.E]: {
-        [TENSE.P]: {
+    [IDS.ASPECT.E]: {
+        [IDS.TENSE.P]: {
             [GENDERS.MAP.E.NAME]: {
                 1: {
                     [IDS.NUMBERS.S]: "xirōd",
@@ -401,7 +401,7 @@ LUR.MAP = {
                 }
             },
         },
-        [TENSE.NP]: {
+        [IDS.TENSE.NP]: {
             [GENDERS.MAP.E.NAME]: {
                 1: {
                     [IDS.NUMBERS.S]: "xelur",
@@ -523,9 +523,9 @@ LUR.MAP = {
             },
         }
     },
-    [ASPECT.G]: {
+    [IDS.ASPECT.G]: {
 
-        [TENSE.P]: {
+        [IDS.TENSE.P]: {
             [GENDERS.MAP.E.NAME]: {
                 1: {
                     [IDS.NUMBERS.S]: "xelōd",
@@ -646,7 +646,7 @@ LUR.MAP = {
                 }
             },
         },
-        [TENSE.NP]: {
+        [IDS.TENSE.NP]: {
             [GENDERS.MAP.E.NAME]: {
                 1: {
                     [IDS.NUMBERS.S]: "xelūrχ",

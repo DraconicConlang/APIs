@@ -202,6 +202,10 @@ const PRONOUNS = {
     fetchByDefinition() { }
 }
 
+const LUR = {
+    MAP: {}
+}
+
 const ALL_WORDS = {
     MAP: {},
     get FLAT() {
@@ -277,6 +281,14 @@ const IDS = {
         COR: 'Correlative',
         PDEM: 'Proximal-Demonstrative',
         DDEM: 'Distal-Demonstrative',
+    },
+    ASPECT: {
+        E: 'Episodic',
+        G: 'Gnomic'
+    },
+    TENSE: {
+        P: 'Past',
+        NP: 'Non-Past'
     }
 }
 

@@ -278,6 +278,498 @@ CORRELATIVES.MAP = {
     }
 }
 
+LUR.MAP = {
+    [ASPECT.E]: {
+        [TENSE.P]: {
+            [GENDERS.MAP.E.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xirōd",
+                    [IDS.NUMBERS.D]: "xynrōd",
+                    [IDS.NUMBERS.P]: "herōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "syrōd",
+                    [IDS.NUMBERS.D]: "sórōd",
+                    [IDS.NUMBERS.P]: "thárōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "terōd",
+                    [IDS.NUMBERS.D]: "q̇yrōd",
+                    [IDS.NUMBERS.P]: "tyrōd"
+                }
+            },
+            [GENDERS.MAP.R.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xirōd",
+                    [IDS.NUMBERS.D]: "xynrōd",
+                    [IDS.NUMBERS.P]: "herōd	"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "syrōd",
+                    [IDS.NUMBERS.D]: "súrōd",
+                    [IDS.NUMBERS.P]: "thórōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "turōd",
+                    [IDS.NUMBERS.D]: "q̇yrōd",
+                    [IDS.NUMBERS.P]: "tyrōd"
+                }
+            },
+            [GENDERS.MAP.MON.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "χħórōd",
+                    [IDS.NUMBERS.D]: "xórōd",
+                    [IDS.NUMBERS.P]: "hôd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sórôd",
+                    [IDS.NUMBERS.D]: "sórôd",
+                    [IDS.NUMBERS.P]: "thôrōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tórôd",
+                    [IDS.NUMBERS.D]: "q̇ħôd",
+                    [IDS.NUMBERS.P]: "tyrōd"
+                }
+            },
+            [GENDERS.MAP.I.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xerōd",
+                    [IDS.NUMBERS.D]: "llyrōd",
+                    [IDS.NUMBERS.P]: "llyrōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "surōd",
+                    [IDS.NUMBERS.D]: "sórōd",
+                    [IDS.NUMBERS.P]: "thórōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "túrōd",
+                    [IDS.NUMBERS.D]: "q̇órōd",
+                    [IDS.NUMBERS.P]: "turōd"
+                }
+            },
+            [GENDERS.MAP.MAG.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xyrōd",
+                    [IDS.NUMBERS.D]: "hyrōd",
+                    [IDS.NUMBERS.P]: "hyrōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sōd",
+                    [IDS.NUMBERS.D]: "thárōd",
+                    [IDS.NUMBERS.P]: "thárōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tórōd",
+                    [IDS.NUMBERS.D]: "tyrōd",
+                    [IDS.NUMBERS.P]: "tyrōd"
+                }
+            },
+            [GENDERS.MAP.MUN.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "rōd",
+                    [IDS.NUMBERS.D]: "rōd",
+                    [IDS.NUMBERS.P]: "rōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "syrōd",
+                    [IDS.NUMBERS.D]: "thárōd",
+                    [IDS.NUMBERS.P]: "thárōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tryrōd",
+                    [IDS.NUMBERS.D]: "tyrōd",
+                    [IDS.NUMBERS.P]: "tyrōd"
+                }
+            },
+            [GENDERS.MAP.A.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "rōd",
+                    [IDS.NUMBERS.D]: "rōd",
+                    [IDS.NUMBERS.P]: "rōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "syrōd",
+                    [IDS.NUMBERS.D]: "thárōd",
+                    [IDS.NUMBERS.P]: "thárōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "trōd",
+                    [IDS.NUMBERS.D]: "trōd",
+                    [IDS.NUMBERS.P]: "trōd"
+                }
+            },
+        },
+        [TENSE.NP]: {
+            [GENDERS.MAP.E.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xelur",
+                    [IDS.NUMBERS.D]: "xylur",
+                    [IDS.NUMBERS.P]: "helur"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sylur",
+                    [IDS.NUMBERS.D]: "sólur",
+                    [IDS.NUMBERS.P]: "thálur"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "telur",
+                    [IDS.NUMBERS.D]: "q̇ylur",
+                    [IDS.NUMBERS.P]: "tylur"
+                }
+            },
+            [GENDERS.MAP.R.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xilur",
+                    [IDS.NUMBERS.D]: "xylur",
+                    [IDS.NUMBERS.P]: "hilur"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sylur",
+                    [IDS.NUMBERS.D]: "sóllur",
+                    [IDS.NUMBERS.P]: "thállur"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tollur",
+                    [IDS.NUMBERS.D]: "q̇yllur",
+                    [IDS.NUMBERS.P]: "tylur"
+                }
+            },
+            [GENDERS.MAP.MON.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "χħólur",
+                    [IDS.NUMBERS.D]: "xólur",
+                    [IDS.NUMBERS.P]: "hôlur"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sôlur",
+                    [IDS.NUMBERS.D]: "sóq̇ħūr",
+                    [IDS.NUMBERS.P]: "tháq̇ħūr"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tôlur",
+                    [IDS.NUMBERS.D]: "q̇ħólur",
+                    [IDS.NUMBERS.P]: "tūr"
+                }
+            },
+            [GENDERS.MAP.I.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xellur",
+                    [IDS.NUMBERS.D]: "llūr",
+                    [IDS.NUMBERS.P]: "llūr"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sūlur",
+                    [IDS.NUMBERS.D]: "sócūr",
+                    [IDS.NUMBERS.P]: "thácūr"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tócūr",
+                    [IDS.NUMBERS.D]: "q̇ácūr",
+                    [IDS.NUMBERS.P]: "tillūr"
+                }
+            },
+            [GENDERS.MAP.MAG.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xolur",
+                    [IDS.NUMBERS.D]: "holur",
+                    [IDS.NUMBERS.P]: "holur"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sūr",
+                    [IDS.NUMBERS.D]: "thâlur",
+                    [IDS.NUMBERS.P]: "thâlur"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tólur",
+                    [IDS.NUMBERS.D]: "tūlur",
+                    [IDS.NUMBERS.P]: "tūlur"
+                }
+            },
+            [GENDERS.MAP.MUN.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xur",
+                    [IDS.NUMBERS.D]: "rur",
+                    [IDS.NUMBERS.P]: "rur"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sur",
+                    [IDS.NUMBERS.D]: "thûr",
+                    [IDS.NUMBERS.P]: "thûr"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "trur",
+                    [IDS.NUMBERS.D]: "tūr",
+                    [IDS.NUMBERS.P]: "tūr"
+                }
+            },
+            [GENDERS.MAP.A.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "lur",
+                    [IDS.NUMBERS.D]: "lur",
+                    [IDS.NUMBERS.P]: "lur"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sulur",
+                    [IDS.NUMBERS.D]: "thálur",
+                    [IDS.NUMBERS.P]: "thálur"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tolur",
+                    [IDS.NUMBERS.D]: "tulur",
+                    [IDS.NUMBERS.P]: "tulur"
+                }
+            },
+        }
+    },
+    [ASPECT.G]: {
+
+        [TENSE.P]: {
+            [GENDERS.MAP.E.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xelōd",
+                    [IDS.NUMBERS.D]: "xylōd",
+                    [IDS.NUMBERS.P]: "helōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sylōd",
+                    [IDS.NUMBERS.D]: "sólōd",
+                    [IDS.NUMBERS.P]: "thálōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "telōd",
+                    [IDS.NUMBERS.D]: "q̇ylōd",
+                    [IDS.NUMBERS.P]: "tylōd"
+                }
+            },
+            [GENDERS.MAP.R.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xelōd",
+                    [IDS.NUMBERS.D]: "xylōd",
+                    [IDS.NUMBERS.P]: "helōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sylōd",
+                    [IDS.NUMBERS.D]: "sóllōd",
+                    [IDS.NUMBERS.P]: "thállōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tollōd",
+                    [IDS.NUMBERS.D]: "q̇yllōd",
+                    [IDS.NUMBERS.P]: "tylōd"
+                }
+            },
+            [GENDERS.MAP.MON.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "χħólōd",
+                    [IDS.NUMBERS.D]: "xólōd",
+                    [IDS.NUMBERS.P]: "hôlōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sólōd",
+                    [IDS.NUMBERS.D]: "súrōd",
+                    [IDS.NUMBERS.P]: "thórōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tólōd",
+                    [IDS.NUMBERS.D]: "q̇ħólōd",
+                    [IDS.NUMBERS.P]: "tulrōd"
+                }
+            },
+            [GENDERS.MAP.I.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xyrōd",
+                    [IDS.NUMBERS.D]: "llurōd",
+                    [IDS.NUMBERS.P]: "llurōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sūlōd",
+                    [IDS.NUMBERS.D]: "sūrōd",
+                    [IDS.NUMBERS.P]: "thûrōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tūrōd",
+                    [IDS.NUMBERS.D]: "q̇ūrōd",
+                    [IDS.NUMBERS.P]: "tīrōd"
+                }
+            },
+            [GENDERS.MAP.MAG.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xolrōd",
+                    [IDS.NUMBERS.D]: "holrōd",
+                    [IDS.NUMBERS.P]: "holrōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sūrōd",
+                    [IDS.NUMBERS.D]: "thâlrōd",
+                    [IDS.NUMBERS.P]: "thâlrōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tólrōd",
+                    [IDS.NUMBERS.D]: "tūlōd",
+                    [IDS.NUMBERS.P]: "tūlōd"
+                }
+            },
+            [GENDERS.MAP.MUN.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xurōd",
+                    [IDS.NUMBERS.D]: "rylōd",
+                    [IDS.NUMBERS.P]: "rylōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "surōd",
+                    [IDS.NUMBERS.D]: "thûrōd",
+                    [IDS.NUMBERS.P]: "thûrōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "trulōd",
+                    [IDS.NUMBERS.D]: "turōd",
+                    [IDS.NUMBERS.P]: "turōd"
+                }
+            },
+            [GENDERS.MAP.A.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "lyrōd",
+                    [IDS.NUMBERS.D]: "lyrōd",
+                    [IDS.NUMBERS.P]: "lyrōd"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "surōd",
+                    [IDS.NUMBERS.D]: "thálōd",
+                    [IDS.NUMBERS.P]: "thálōd"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tolōd",
+                    [IDS.NUMBERS.D]: "tulōd",
+                    [IDS.NUMBERS.P]: "tulōd"
+                }
+            },
+        },
+        [TENSE.NP]: {
+            [GENDERS.MAP.E.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xelūrχ",
+                    [IDS.NUMBERS.D]: "xylūrχ",
+                    [IDS.NUMBERS.P]: "helūrχ"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sylūrχ",
+                    [IDS.NUMBERS.D]: "sólūrχ",
+                    [IDS.NUMBERS.P]: "thálūrχ"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "telūrχ",
+                    [IDS.NUMBERS.D]: "q̇ylūrχ",
+                    [IDS.NUMBERS.P]: "tylūrχ"
+                }
+            },
+            [GENDERS.MAP.R.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xilūrχ",
+                    [IDS.NUMBERS.D]: "xylūrχ",
+                    [IDS.NUMBERS.P]: "hilūrχ"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sylūrχ",
+                    [IDS.NUMBERS.D]: "sóllurχ",
+                    [IDS.NUMBERS.P]: "thállurχ"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tollurχ",
+                    [IDS.NUMBERS.D]: "q̇yllurχ",
+                    [IDS.NUMBERS.P]: "tylūrχ"
+                }
+            },
+            [GENDERS.MAP.MON.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "χħólurχ",
+                    [IDS.NUMBERS.D]: "xólūrχ",
+                    [IDS.NUMBERS.P]: "hólūrχ"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sólūrχ",
+                    [IDS.NUMBERS.D]: "sûryχ",
+                    [IDS.NUMBERS.P]: "thûryχ"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tólūrχ",
+                    [IDS.NUMBERS.D]: "q̇ħûrχ",
+                    [IDS.NUMBERS.P]: "turyχ"
+                }
+            },
+            [GENDERS.MAP.I.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xellurχ",
+                    [IDS.NUMBERS.D]: "llūryχ",
+                    [IDS.NUMBERS.P]: "llūryχ"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sulūrχ",
+                    [IDS.NUMBERS.D]: "sūryχ",
+                    [IDS.NUMBERS.P]: "thûryχ"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tûryχ",
+                    [IDS.NUMBERS.D]: "q̇ûryχ",
+                    [IDS.NUMBERS.P]: "tillūrχ"
+                }
+            },
+            [GENDERS.MAP.MAG.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xolūrχ",
+                    [IDS.NUMBERS.D]: "holūrχ",
+                    [IDS.NUMBERS.P]: "holūrχ"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sūryχ",
+                    [IDS.NUMBERS.D]: "thálūrχ",
+                    [IDS.NUMBERS.P]: "thálūrχ"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tólūrχ",
+                    [IDS.NUMBERS.D]: "tulūrχ",
+                    [IDS.NUMBERS.P]: "tulūrχ"
+                }
+            },
+            [GENDERS.MAP.MUN.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "xūrχ",
+                    [IDS.NUMBERS.D]: "rūχ",
+                    [IDS.NUMBERS.P]: "rūχ"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sūrχ",
+                    [IDS.NUMBERS.D]: "thûryχ",
+                    [IDS.NUMBERS.P]: "thûryχ"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "trūrχ",
+                    [IDS.NUMBERS.D]: "tūryχ",
+                    [IDS.NUMBERS.P]: "tūryχ"
+                }
+            },
+            [GENDERS.MAP.A.NAME]: {
+                1: {
+                    [IDS.NUMBERS.S]: "lūrχ",
+                    [IDS.NUMBERS.D]: "lūrχ",
+                    [IDS.NUMBERS.P]: "lūrχ"
+                },
+                2: {
+                    [IDS.NUMBERS.S]: "sulūrχ",
+                    [IDS.NUMBERS.D]: "thálūrχ",
+                    [IDS.NUMBERS.P]: "thálūrχ"
+                },
+                3: {
+                    [IDS.NUMBERS.S]: "tolūrχ",
+                    [IDS.NUMBERS.D]: "tulūrχ",
+                    [IDS.NUMBERS.P]: "tulūrχ"
+                }
+            },
+        }
+    }
+}
+
 function flattenSuffixMatches(suffixes, type) {
     const result = {};
     const isNoun = type === "n";

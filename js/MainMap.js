@@ -171,11 +171,18 @@ const DETERMINERS = {
             return Object.values(this.MAP);
         },
     },
+    SUFFIXES: {
+        MAP: {},
+    },
     IRREGULARS: {
         MAP: {},
     },
     fetch() { },
     fetchByDefinition() { }
+}
+
+const CORRELATIVES = {
+    MAP: {}
 }
 
 const CONJUNCTIONS = {
@@ -261,6 +268,13 @@ const IDS = {
     DET_TYPES: {
         NA: 'Negative-Article',
         DA: 'Definite-Article',
+        PDEM: 'Proximal-Demonstrative',
+        DDEM: 'Distal-Demonstrative',
+    },
+    COR_TYPES: {
+        INT: 'Interrogative',
+        R: 'Relative',
+        COR: 'Correlative',
         PDEM: 'Proximal-Demonstrative',
         DDEM: 'Distal-Demonstrative',
     }

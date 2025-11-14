@@ -206,6 +206,78 @@ DETERMINERS.IRREGULARS.MAP = {
     }
 }
 
+DETERMINERS.SUFFIXES.MAP = {
+    [GENDERS.MAP.E.NAME]: "hyn",
+    [GENDERS.MAP.R.NAME]: "hyf",
+    [GENDERS.MAP.MON.NAME]: "ħó",
+    [GENDERS.MAP.I.NAME]: "llīl",
+    [GENDERS.MAP.MAG.NAME]: "huχ",
+    [GENDERS.MAP.MUN.NAME]: "thok",
+    [GENDERS.MAP.A.NAME]: "hoq̇"
+}
+
+CORRELATIVES.MAP = {
+    [GENDERS.ANIMATES.NAME]: {
+        [IDS.COR_TYPES.INT]: { [IDS.TARGETS.S]: "hā", [IDS.TARGETS.O]: "halláħ" },
+        [IDS.COR_TYPES.R]: { [IDS.TARGETS.S]: "sē", [IDS.TARGETS.O]: "sēlláħ" },
+        [IDS.COR_TYPES.COR]: { [IDS.TARGETS.S]: "thare", [IDS.TARGETS.O]: "tharlláħ" },
+    },
+    [GENDERS.INANIMATES.NAME]: {
+        [IDS.COR_TYPES.INT]: { [IDS.TARGETS.S]: "hox", [IDS.TARGETS.O]: "hóqħ" },
+        [IDS.COR_TYPES.R]: { [IDS.TARGETS.S]: "six", [IDS.TARGETS.O]: "sôqħ" },
+        [IDS.COR_TYPES.COR]: { [IDS.TARGETS.S]: "tharx", [IDS.TARGETS.O]: "tharáqħ" },
+    },
+    [GENDERS.MAP.E.NAME]: {
+        [IDS.COR_TYPES.INT]: { [IDS.TARGETS.S]: "hālen", [IDS.TARGETS.O]: "hallħân" },
+        [IDS.COR_TYPES.R]: { [IDS.TARGETS.S]: "sēlen", [IDS.TARGETS.O]: "sēllħân" },
+        [IDS.COR_TYPES.COR]: { [IDS.TARGETS.S]: "tharlen", [IDS.TARGETS.O]: "tharħân" },
+        [IDS.COR_TYPES.PDEM]: { [IDS.TARGETS.S]: "sēn", [IDS.TARGETS.O]: "sōhyn" },
+        [IDS.COR_TYPES.DDEM]: { [IDS.TARGETS.S]: "lēn", [IDS.TARGETS.O]: "li'ōn" },
+    },
+    [GENDERS.MAP.R.NAME]: {
+        [IDS.COR_TYPES.INT]: { [IDS.TARGETS.S]: "hāllef", [IDS.TARGETS.O]: "hallħâf" },
+        [IDS.COR_TYPES.R]: { [IDS.TARGETS.S]: "sēllef", [IDS.TARGETS.O]: "sēllħâf" },
+        [IDS.COR_TYPES.COR]: { [IDS.TARGETS.S]: "tharllef", [IDS.TARGETS.O]: "tharħâf" },
+        [IDS.COR_TYPES.PDEM]: { [IDS.TARGETS.S]: "sēf", [IDS.TARGETS.O]: "sōhyf" },
+        [IDS.COR_TYPES.DDEM]: { [IDS.TARGETS.S]: "lēf", [IDS.TARGETS.O]: "li'ōf" },
+    },
+    [GENDERS.MAP.MON.NAME]: {
+        [IDS.COR_TYPES.INT]: { [IDS.TARGETS.S]: "hālló", [IDS.TARGETS.O]: "hallħô" },
+        [IDS.COR_TYPES.R]: { [IDS.TARGETS.S]: "sēlló", [IDS.TARGETS.O]: "sēllħô" },
+        [IDS.COR_TYPES.COR]: { [IDS.TARGETS.S]: "tharlló", [IDS.TARGETS.O]: "tharħô" },
+        [IDS.COR_TYPES.PDEM]: { [IDS.TARGETS.S]: "sēħó", [IDS.TARGETS.O]: "sōħó" },
+        [IDS.COR_TYPES.DDEM]: { [IDS.TARGETS.S]: "lēħó", [IDS.TARGETS.O]: "li'ô" },
+    },
+    [GENDERS.MAP.I.NAME]: {
+        [IDS.COR_TYPES.INT]: { [IDS.TARGETS.S]: "hāllcīl", [IDS.TARGETS.O]: "hallħīl" },
+        [IDS.COR_TYPES.R]: { [IDS.TARGETS.S]: "sēllcīl", [IDS.TARGETS.O]: "sēllħīl" },
+        [IDS.COR_TYPES.COR]: { [IDS.TARGETS.S]: "tharcīl", [IDS.TARGETS.O]: "tharħīl" },
+        [IDS.COR_TYPES.PDEM]: { [IDS.TARGETS.S]: "sēllīl", [IDS.TARGETS.O]: "sōllīl" },
+        [IDS.COR_TYPES.DDEM]: { [IDS.TARGETS.S]: "lēllīl", [IDS.TARGETS.O]: "li'llīl" },
+    },
+    [GENDERS.MAP.MAG.NAME]: {
+        [IDS.COR_TYPES.INT]: { [IDS.TARGETS.S]: "huχuχ", [IDS.TARGETS.O]: "hoqħôχ" },
+        [IDS.COR_TYPES.R]: { [IDS.TARGETS.S]: "siχuχ", [IDS.TARGETS.O]: "suqħôχ" },
+        [IDS.COR_TYPES.COR]: { [IDS.TARGETS.S]: "tharχuχ", [IDS.TARGETS.O]: "tharqħôχ" },
+        [IDS.COR_TYPES.PDEM]: { [IDS.TARGETS.S]: "sēhuχ", [IDS.TARGETS.O]: "sōhuχ" },
+        [IDS.COR_TYPES.DDEM]: { [IDS.TARGETS.S]: "lēhuχ", [IDS.TARGETS.O]: "li'ōχ" },
+    },
+    [GENDERS.MAP.MUN.NAME]: {
+        [IDS.COR_TYPES.INT]: { [IDS.TARGETS.S]: "hotok", [IDS.TARGETS.O]: "hoqħárk" },
+        [IDS.COR_TYPES.R]: { [IDS.TARGETS.S]: "sitok", [IDS.TARGETS.O]: "suqħárk" },
+        [IDS.COR_TYPES.COR]: { [IDS.TARGETS.S]: "thartok", [IDS.TARGETS.O]: "tharqħárk" },
+        [IDS.COR_TYPES.PDEM]: { [IDS.TARGETS.S]: "sērk", [IDS.TARGETS.O]: "sōthok" },
+        [IDS.COR_TYPES.DDEM]: { [IDS.TARGETS.S]: "lērk", [IDS.TARGETS.O]: "li'ōk" },
+    },
+    [GENDERS.MAP.A.NAME]: {
+        [IDS.COR_TYPES.INT]: { [IDS.TARGETS.S]: "hoχoq̇", [IDS.TARGETS.O]: "hoqħôq̇" },
+        [IDS.COR_TYPES.R]: { [IDS.TARGETS.S]: "siχoq̇", [IDS.TARGETS.O]: "suqħôq̇" },
+        [IDS.COR_TYPES.COR]: { [IDS.TARGETS.S]: "tharχoq̇", [IDS.TARGETS.O]: "tharqħôq̇" },
+        [IDS.COR_TYPES.PDEM]: { [IDS.TARGETS.S]: "sēhoq̇", [IDS.TARGETS.O]: "sōhoq̇" },
+        [IDS.COR_TYPES.DDEM]: { [IDS.TARGETS.S]: "lēhoq̇", [IDS.TARGETS.O]: "li'ōq̇" },
+    }
+}
+
 function flattenSuffixMatches(suffixes, type) {
     const result = {};
     const isNoun = type === "n";

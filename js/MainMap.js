@@ -165,9 +165,14 @@ const PARTICLES = {
 }
 
 const DETERMINERS = {
-    MAP: {},
-    get FLAT() {
-        return Object.values(this.MAP);
+    REGULARS: {
+        MAP: {},
+        get FLAT() {
+            return Object.values(this.MAP);
+        },
+    },
+    IRREGULARS: {
+        MAP: {},
     },
     fetch() { },
     fetchByDefinition() { }
@@ -247,11 +252,17 @@ const IDS = {
     },
     TARGETS: {
         S: "Subject",
-        O: "Oblique",
+        O: "Object",
     },
     MOODS: {
         D: "Directive",
         R: "Recessive",
+    },
+    DET_TYPES: {
+        NA: 'Negative-Article',
+        DA: 'Definite-Article',
+        PDEM: 'Proximal-Demonstrative',
+        DDEM: 'Distal-Demonstrative',
     }
 }
 

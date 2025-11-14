@@ -970,7 +970,7 @@ PARTICLES.MAP = {
 "χħôħá": new Particle("χħôħá", "the great, the honorable; particle used to present or introduce dragons of nobility, especially to a crowd", "")
 }
 
-DETERMINERS.MAP = {
+DETERMINERS.REGULARS.MAP = {
 "llillīxy": new Determiner("llillīxy", "too much, too many", " always takes plural"),
 "llīxem": new Determiner("llīxem", "all; every", " when the noun it describes is in the singular, it means 'every' when the noun it describes is in the plural, it means 'all'"),
 "loxta": new Determiner("loxta", "most, the majority of", " always takes plural"),
@@ -1015,7 +1015,7 @@ ALL_WORDS.MAP = Object.fromEntries(
         ...AUXILIARIES.MAP,
         ...PREPOSITIONS.MAP,
         ...PARTICLES.MAP,
-        ...DETERMINERS.MAP,
+        ...DETERMINERS.REGULARS.MAP,
         ...CONJUNCTIONS.MAP,
     })
     .sort(([aKey], [bKey]) => aKey.localeCompare(bKey))

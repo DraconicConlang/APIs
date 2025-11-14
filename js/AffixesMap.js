@@ -161,12 +161,57 @@ PRONOUNS.MAP = {
     }
 }
 
+DETERMINERS.IRREGULARS.MAP = {
+    [GENDERS.MAP.E.NAME]: {
+        [IDS.DET_TYPES.NA]: "q̇e",
+        [IDS.DET_TYPES.DA]: { [IDS.NUMBERS.S]: "tyn", [IDS.NUMBERS.P]: "tōn" },
+        [IDS.DET_TYPES.PDEM]: { [IDS.NUMBERS.S]: "sēn", [IDS.NUMBERS.P]: "sōn" },
+        [IDS.DET_TYPES.DDEM]: { [IDS.NUMBERS.S]: "lēn", [IDS.NUMBERS.P]: "li'ōn" },
+    },
+    [GENDERS.MAP.R.NAME]: {
+        [IDS.DET_TYPES.NA]: "q̇e",
+        [IDS.DET_TYPES.DA]: { [IDS.NUMBERS.S]: "tyf", [IDS.NUMBERS.P]: "tōf" },
+        [IDS.DET_TYPES.PDEM]: { [IDS.NUMBERS.S]: "sēf", [IDS.NUMBERS.P]: "sōf" },
+        [IDS.DET_TYPES.DDEM]: { [IDS.NUMBERS.S]: "lēf", [IDS.NUMBERS.P]: "li'ōf" },
+    },
+    [GENDERS.MAP.MON.NAME]: {
+        [IDS.DET_TYPES.NA]: "q̇e",
+        [IDS.DET_TYPES.DA]: { [IDS.NUMBERS.S]: "tó", [IDS.NUMBERS.P]: "tô" },
+        [IDS.DET_TYPES.PDEM]: { [IDS.NUMBERS.S]: "sēħó", [IDS.NUMBERS.P]: "sōħó" },
+        [IDS.DET_TYPES.DDEM]: { [IDS.NUMBERS.S]: "lēħó", [IDS.NUMBERS.P]: "li'ô" },
+    },
+    [GENDERS.MAP.I.NAME]: {
+        [IDS.DET_TYPES.NA]: "q̇e",
+        [IDS.DET_TYPES.DA]: { [IDS.NUMBERS.S]: "tīl", [IDS.NUMBERS.P]: "tūl" },
+        [IDS.DET_TYPES.PDEM]: { [IDS.NUMBERS.S]: "sēllīl", [IDS.NUMBERS.P]: "sōllīl" },
+        [IDS.DET_TYPES.DDEM]: { [IDS.NUMBERS.S]: "lēllīl", [IDS.NUMBERS.P]: "li'llīl" },
+    },
+    [GENDERS.MAP.MAG.NAME]: {
+        [IDS.DET_TYPES.NA]: "q̇e",
+        [IDS.DET_TYPES.DA]: { [IDS.NUMBERS.S]: "tuχ", [IDS.NUMBERS.P]: "tōχ" },
+        [IDS.DET_TYPES.PDEM]: { [IDS.NUMBERS.S]: "sēhuχ", [IDS.NUMBERS.P]: "sōhuχ" },
+        [IDS.DET_TYPES.DDEM]: { [IDS.NUMBERS.S]: "lēhuχ", [IDS.NUMBERS.P]: "li'ōχ" },
+    },
+    [GENDERS.MAP.MUN.NAME]: {
+        [IDS.DET_TYPES.NA]: "q̇e",
+        [IDS.DET_TYPES.DA]: { [IDS.NUMBERS.S]: "tyrk", [IDS.NUMBERS.P]: "tōk" },
+        [IDS.DET_TYPES.PDEM]: { [IDS.NUMBERS.S]: "sērk", [IDS.NUMBERS.P]: "sōthok" },
+        [IDS.DET_TYPES.DDEM]: { [IDS.NUMBERS.S]: "lērk", [IDS.NUMBERS.P]: "li'ōk" },
+    },
+    [GENDERS.MAP.A.NAME]: {
+        [IDS.DET_TYPES.NA]: "q̇e",
+        [IDS.DET_TYPES.DA]: { [IDS.NUMBERS.S]: "toq̇", [IDS.NUMBERS.P]: "tōq̇" },
+        [IDS.DET_TYPES.PDEM]: { [IDS.NUMBERS.S]: "sēhoq̇", [IDS.NUMBERS.P]: "sōhoq̇" },
+        [IDS.DET_TYPES.DDEM]: { [IDS.NUMBERS.S]: "lēhoq̇", [IDS.NUMBERS.P]: "li'ōq̇" },
+    }
+}
+
 function flattenSuffixMatches(suffixes, type) {
     const result = {};
     const isNoun = type === "n";
-    
+
     const suffixPaths = {};
-    
+
     if (isNoun) {
         for (const mood in suffixes) {
             for (const gender in suffixes[mood]) {
@@ -174,7 +219,7 @@ function flattenSuffixMatches(suffixes, type) {
                     for (const decl in suffixes[mood][gender][num]) {
                         const suf = suffixes[mood][gender][num][decl];
                         if (!suf) continue;
-                        
+
                         if (!suffixPaths[suf]) {
                             suffixPaths[suf] = { mood, gender, numbers: new Set(), declensions: new Set() };
                         }
@@ -190,7 +235,7 @@ function flattenSuffixMatches(suffixes, type) {
                 for (const gender in suffixes[person][num]) {
                     const suf = suffixes[person][num][gender];
                     if (!suf) continue;
-                    
+
                     if (!suffixPaths[suf]) {
                         suffixPaths[suf] = { person: Number(person), gender, numbers: new Set() };
                     }
@@ -199,18 +244,18 @@ function flattenSuffixMatches(suffixes, type) {
             }
         }
     }
-    
+
     for (const suf in suffixPaths) {
         const entries = CHARACTERS.textToEntriesByAnyText(suf);
         let variants;
-        
+
         if (entries?.length) {
             const firstEntry = entries[0];
             if (firstEntry.prop?.includes(REG.OPTIONAL)) {
                 variants = [CHARACTERS.entriesToText(entries), CHARACTERS.entriesToText(entries, true)];
             } else if (firstEntry.prop?.includes(REG.VOWEL)) {
                 const pyric = CHARACTERS.getPyricEquivalent(firstEntry);
-                variants = pyric != null 
+                variants = pyric != null
                     ? [suf, CHARACTERS.entriesToText([pyric, ...entries.slice(1)])]
                     : [suf];
             } else {
@@ -220,28 +265,28 @@ function flattenSuffixMatches(suffixes, type) {
             console.warn(`Could not parse suffix: ${suf}`);
             variants = [suf];
         }
-        
+
         const path = suffixPaths[suf];
         const numbers = Array.from(path.numbers);
-        
+
         result[suf] = isNoun
             ? [suf, variants, [path.mood, path.gender, numbers, Array.from(path.declensions).sort((a, b) => a - b)], "n"]
             : [suf, variants, [path.person, numbers, path.gender], "v"];
     }
-    
+
     return result;
 }
 
 function flattenPrefixMatches(prefixesMap) {
     const result = {};
     const prefixPaths = {};
-    
+
     for (const person in prefixesMap) {
         for (const num in prefixesMap[person]) {
             for (const gender in prefixesMap[person][num]) {
                 const prefix = prefixesMap[person][num][gender];
                 if (!prefix) continue;
-                
+
                 if (!prefixPaths[prefix]) {
                     prefixPaths[prefix] = { person: Number(person), gender, numbers: new Set() };
                 }
@@ -249,11 +294,11 @@ function flattenPrefixMatches(prefixesMap) {
             }
         }
     }
-    
+
     for (const prefix in prefixPaths) {
         const entries = CHARACTERS.textToEntriesByAnyText(prefix);
         let variants;
-        
+
         if (entries?.length) {
             const lastEntry = entries[entries.length - 1];
             variants = lastEntry.prop?.includes(REG.VOWEL)
@@ -262,18 +307,18 @@ function flattenPrefixMatches(prefixesMap) {
         } else {
             variants = [prefix];
         }
-        
+
         const path = prefixPaths[prefix];
         result[prefix] = [prefix, variants, [path.person, Array.from(path.numbers), path.gender], "v"];
     }
-    
+
     return result;
 }
 
 NOUNS.SUFFIXES.FLAT_MATCHES = flattenSuffixMatches(NOUNS.SUFFIXES.MAP, "n");
 ADJECTIVES.SUFFIXES.FLAT_MATCHES = NOUNS.SUFFIXES.FLAT_MATCHES;
-VERBS.SUFFIXES.FLAT_MATCHES  = flattenSuffixMatches(VERBS.SUFFIXES.MAP, "v");
-VERBS.PREFIXES.FLAT_MATCHES  = flattenPrefixMatches(VERBS.PREFIXES.MAP);
+VERBS.SUFFIXES.FLAT_MATCHES = flattenSuffixMatches(VERBS.SUFFIXES.MAP, "v");
+VERBS.PREFIXES.FLAT_MATCHES = flattenPrefixMatches(VERBS.PREFIXES.MAP);
 
 WORD_UTILS.matchAffix = function (input, map, isPrefix = true, returnAll = false) {
     if (!input || typeof input !== "string") return null;
@@ -303,7 +348,7 @@ WORD_UTILS.matchAffix = function (input, map, isPrefix = true, returnAll = false
 
 
 
-WORD_UTILS.connectSplit = function(prefix = "", text = "", suffix = "") {
+WORD_UTILS.connectSplit = function (prefix = "", text = "", suffix = "") {
     let text_entries = CHARACTERS.textToEntriesByAnyText(text);
     let prefix_entries = CHARACTERS.textToEntriesByAnyText(prefix);
     let suffix_entries = CHARACTERS.textToEntriesByAnyText(suffix);
@@ -313,10 +358,10 @@ WORD_UTILS.connectSplit = function(prefix = "", text = "", suffix = "") {
     if (prefix_entries) {
         const first_text = text_entries[0];
         const last_prefix = prefix_entries[prefix_entries.length - 1];
-        if (last_prefix && last_prefix.prop.includes(window.REG.VOWEL) && first_text.prop.includes(window.REG.VOWEL) ) {
+        if (last_prefix && last_prefix.prop.includes(window.REG.VOWEL) && first_text.prop.includes(window.REG.VOWEL)) {
             prefix_entries.push(CHARACTERS.MAP["ax"])
         }
-        
+
     }
 
     if (suffix_entries) {
@@ -348,12 +393,12 @@ WORD_UTILS.connectSplit = function(prefix = "", text = "", suffix = "") {
     return [prefix_entries, text_entries, suffix_entries];
 }
 
-WORD_UTILS.connect = function(prefix = "", text = "", suffix = "") {
+WORD_UTILS.connect = function (prefix = "", text = "", suffix = "") {
     const entries = WORD_UTILS.connectSplit(prefix, text, suffix);
     return entries.flat();
 }
 
-WORD_UTILS.connectSuffix = function(text, suffix) { return WORD_UTILS.connect("", text, suffix) }
-WORD_UTILS.connectPrefix = function(text, prefix) { return WORD_UTILS.connect(prefix, text, "") }
+WORD_UTILS.connectSuffix = function (text, suffix) { return WORD_UTILS.connect("", text, suffix) }
+WORD_UTILS.connectPrefix = function (text, prefix) { return WORD_UTILS.connect(prefix, text, "") }
 
 window.modules.push("AffixesMap")

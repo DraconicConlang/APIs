@@ -1,110 +1,7 @@
 
-modules = modules || []
-
-if (!modules.includes("MainMap")) {
-    throw new Error("DictionaryData requires MainMap to be loaded first.")
-}
-
-if (!modules.includes("CharacterMap")) {
-    throw new Error("DictionaryData requires CharacterMap to be loaded first.")
-}
-
-if (!modules.includes("AffixesMap")) {
-    throw new Error("DictionaryData requires AffixesMap to be loaded first.")
-}
-
-
-class Noun {
-  constructor(word, declension, genders, usage_notes) {
-    this.type = "n"
-    this.word = word
-    this.declension = declension
-    this.genders = genders
-    this.usage_notes = usage_notes
-  }
-}
-
-class Verb {
-  constructor(word, definition, forms, usage_notes) {
-    this.type = "v"
-    this.word = word
-    this.definition = definition
-    this.forms = forms
-    this.usage_notes = usage_notes
-  }
-}
-
-class Adjective {
-  constructor(word, declension, definition, forms, usage_notes) {
-    this.type = "adj"
-    this.word = word
-    this.declension = declension
-    this.definition = definition
-    this.forms = forms
-    this.usage_notes = usage_notes
-  }
-}
-
-class Adverb {
-  constructor(word, definition, forms, usage_notes) {
-    this.type = "adv"
-    this.word = word
-    this.definition = definition
-    this.forms = forms
-    this.usage_notes = usage_notes
-  }
-}
-
-class Auxiliary {
-  constructor(word, definition, forms, usage_notes) {
-    this.type = "aux"
-    this.word = word
-    this.definition = definition
-    this.forms = forms
-    this.usage_notes = usage_notes
-  }
-}
-
-class Preposition {
-  constructor(word, definition, usage_notes) {
-    this.type = "pp"
-    this.word = word
-    this.definition = definition
-    this.usage_notes = usage_notes
-  }
-}
-
-class Particle {
-  constructor(word, definition, usage_notes) {
-    this.type = "part"
-    this.word = word
-    this.definition = definition
-    this.usage_notes = usage_notes
-  }
-}
-
-class Determiner {
-  constructor(word, definition, usage_notes) {
-    this.type = "det"
-    this.word = word
-    this.definition = definition
-    this.usage_notes = usage_notes
-  }
-}
-
-class Conjunction {
-  constructor(word, definition, usage_notes) {
-    this.type = "con"
-    this.word = word
-    this.definition = definition
-    this.usage_notes = usage_notes
-  }
-}
-
-
 // vv==== CACHE =====vv
 
-NOUNS.MAP = {
+DICTIONARY.NOUNS.MAP = {
 "afuχ": new Noun("afuχ", 3, {'Magical': 'life cycle, circle of life', 'Mundane': 'wheel', 'Abstract': 'cycle, circle'}, ""),
 "axa": {1: new Noun("axa", 1, {'Abstract': 'negativity; negation'}, ""),2: new Noun("axa", 2, {'Monstrous': 'eyebat; cyclops', 'Magical': 'eye', 'Mundane': 'eye', 'Abstract': 'sight, vision'}, "")},
 "cellâlq": new Noun("cellâlq", 3, {'Monstrous': 'giant fire elemental, especially if violent', 'Irrational': 'flame as personified', 'Magical': 'firestorm, inferno; (definite) Hell', 'Mundane': 'cinder, ember', 'Abstract': 'uncontained or unchecked power; plague'}, ""),
@@ -462,7 +359,7 @@ NOUNS.MAP = {
 "χōtrūrχu": new Noun("χōtrūrχu", 1, {'Exalted': 'lieutenant; leader (of a small group or team)', 'Rational': 'lieutenant; leader (of a small group or team)', 'Monstrous': 'lieutenant; leader (of a small group or team)', 'Irrational': 'lieutenant; leader (of a small group or team)', 'Magical': 'magic that compels one do to something against their own will', 'Mundane': 'commandment (as written or decreed)', 'Abstract': 'employment, hiring of an employee; command, order; imperative, commandment (as given)'}, "")
 }
 
-VERBS.MAP = {
+DICTIONARY.VERBS.MAP = {
 "æf": new Verb("æf", "to denounce, to insult; to spit, to spit upon", "æfad, āf, āfad", ""),
 "æfux": new Verb("æfux", "to drool, to salivate; to hunger, to hunger for", "æfād, āfux, āfād", " sense 'to hunger for' takes preposition ō"),
 "ærχ": new Verb("ærχ", "to like, to enjoy; (reflexive) to be pleased, satisfied", "ærd, N/A, N/A", ""),
@@ -701,7 +598,7 @@ VERBS.MAP = {
 "trath": new Verb("trath", "to disappoint, to let down", "tradad, trāth, trādad", " takes preposition ho")
 }
 
-ADJECTIVES.MAP = {
+DICTIONARY.ADJECTIVES.MAP = {
 "anq̇ulq̇": new Adjective("anq̇ulq̇", 2, "respectful; humble", "anq̇ūlq̇", ""),
 "anqχēl": new Adjective("anqχēl", 1, "resilient, tough, resistant", "ānqχēl (1)", ""),
 "axk": new Adjective("axk", 3, "mechanical; functional, operable", "āxk", ""),
@@ -858,7 +755,7 @@ ADJECTIVES.MAP = {
 "χūq": new Adjective("χūq", 4, "forceful, vigorous, powerful; insistent", "χuχūq", "")
 }
 
-ADVERBS.MAP = {
+DICTIONARY.ADVERBS.MAP = {
 "ax": new Adverb("ax", "not; negates verbs and regular auxiliaries", "nan", " Is not used with lur 'to be,' as both a verb and an auxiliary. Negative copula q̇em is used instead "),
 "fulthor": new Adverb("fulthor", "poorly; evilly, wickedly", "fūlthor", ""),
 "futhor": new Adverb("futhor", "well; righteously, upstandingly", "fūthor", ""),
@@ -895,7 +792,7 @@ ADVERBS.MAP = {
 "qyru": new Adverb("qyru", "behind; backwards", "nan", "")
 }
 
-AUXILIARIES.MAP = {
+DICTIONARY.AUXILIARIES.MAP = {
 "āhk": new Auxiliary("āhk", "do not! (prohibitive)", "defective", " always in the second person"),
 "ciχād": new Auxiliary("ciχād", "to have been able to, could (past abilitative)", "defective", " often implies a counterfactual"),
 "ciχo": new Auxiliary("ciχo", "to be able to, can (abilitative)", "defective", " implies present tense"),
@@ -917,7 +814,7 @@ AUXILIARIES.MAP = {
 "χar": new Auxiliary("χar", "to hopefully, to wish to, to desire to (desiderative mood)", "χalód, χār, χalód", "")
 }
 
-PREPOSITIONS.MAP = {
+DICTIONARY.PREPOSITIONS.MAP = {
 "æze": new Preposition("æze", "through", ""),
 "aze": new Preposition("aze", "alternative form of æze", ""),
 "fenlly": new Preposition("fenlly", "made of, conisting of", ""),
@@ -946,7 +843,7 @@ PREPOSITIONS.MAP = {
 "ū": new Preposition("ū", "about, regarding, of", "")
 }
 
-PARTICLES.MAP = {
+DICTIONARY.PARTICLES.MAP = {
 "ān": new Particle("ān", "optional noun suffix on animate roots to specify feminine", " rare"),
 "elce": new Particle("elce", "particle following a plain interrogative to mean 'how much' or 'how many'", " following word must be a noun prefixed with ħá sense 'how much' takes singular, and sense 'how many' takes plural"),
 "ħâ": new Particle("ħâ", "behold!;  ô!", " not used in sentences; interjected to call attention to something or someone considered somewhat archaic, but still used in formal settings"),
@@ -970,7 +867,7 @@ PARTICLES.MAP = {
 "χħôħá": new Particle("χħôħá", "the great, the honorable; particle used to present or introduce dragons of nobility, especially to a crowd", "")
 }
 
-DETERMINERS.REGULARS.MAP = {
+DICTIONARY.DETERMINERS.MAP = {
 "llillīxy": new Determiner("llillīxy", "too much, too many", " always takes plural"),
 "llīxem": new Determiner("llīxem", "all; every", " when the noun it describes is in the singular, it means 'every' when the noun it describes is in the plural, it means 'all'"),
 "loxta": new Determiner("loxta", "most, the majority of", " always takes plural"),
@@ -980,7 +877,7 @@ DETERMINERS.REGULARS.MAP = {
 "trâfo": new Determiner("trâfo", "some, some of", " takes singular for mass nouns, plural for count nouns")
 }
 
-CONJUNCTIONS.MAP = {
+DICTIONARY.CONJUNCTIONS.MAP = {
 "fáχ": new Conjunction("fáχ", "neither, nor", ""),
 "hærŋ": new Conjunction("hærŋ", "although, though; albeit", ""),
 "ho": new Conjunction("ho", "despite the fact that", ""),
@@ -1006,17 +903,17 @@ CONJUNCTIONS.MAP = {
 
 // ^^==== CACHE =====^^
 
-ALL_WORDS.MAP = Object.fromEntries(
+DICTIONARY.ALL_WORDS.MAP = Object.fromEntries(
     Object.entries({
-        ...NOUNS.MAP,
-        ...VERBS.MAP,
-        ...ADJECTIVES.MAP,
-        ...ADVERBS.MAP,
-        ...AUXILIARIES.MAP,
-        ...PREPOSITIONS.MAP,
-        ...PARTICLES.MAP,
-        ...DETERMINERS.REGULARS.MAP,
-        ...CONJUNCTIONS.MAP,
+        ...DICTIONARY.NOUNS.MAP,
+        ...DICTIONARY.VERBS.MAP,
+        ...DICTIONARY.ADJECTIVES.MAP,
+        ...DICTIONARY.ADVERBS.MAP,
+        ...DICTIONARY.AUXILIARIES.MAP,
+        ...DICTIONARY.PREPOSITIONS.MAP,
+        ...DICTIONARY.PARTICLES.MAP,
+        ...DICTIONARY.DETERMINERS.MAP,
+        ...DICTIONARY.CONJUNCTIONS.MAP,
     })
     .sort(([aKey], [bKey]) => aKey.localeCompare(bKey))
     .map(([key, value]) => {
@@ -1026,74 +923,5 @@ ALL_WORDS.MAP = Object.fromEntries(
         return [key, value];
     })
 );
-
-function basicSearch(keyword, wordmap) {
-  const lower = keyword.toLowerCase()
-  return wordmap.filter(w => w.word && w.word.toLowerCase().includes(lower))
-}
-
-
-NOUNS.fetch = function(keyword) {return basicSearch(keyword, NOUNS.FLAT)}
-VERBS.fetch = function(keyword) {return basicSearch(keyword, VERBS.FLAT)}
-ADJECTIVES.fetch = function(keyword) {return basicSearch(keyword, ADJECTIVES.FLAT)}
-ADVERBS.fetch = function(keyword) {return basicSearch(keyword, ADVERBS.FLAT)}
-AUXILIARIES.fetch = function(keyword) {return basicSearch(keyword, AUXILIARIES.FLAT)}
-PREPOSITIONS.fetch = function(keyword) {return basicSearch(keyword, PREPOSITIONS.FLAT)}
-PARTICLES.fetch = function(keyword) {return basicSearch(keyword, PARTICLES.FLAT)}
-DETERMINERS.fetch = function(keyword) {return basicSearch(keyword, DETERMINERS.FLAT)}
-CONJUNCTIONS.fetch = function(keyword) {return basicSearch(keyword, CONJUNCTIONS.FLAT)}
-ALL_WORDS.fetch = function(keyword) {return basicSearch(keyword, ALL_WORDS.FLAT)}
-
-function basicSearchByDefinition(definition, wordmap) {
-  return (Array.isArray(wordmap) ? wordmap : Object.values(wordmap))
-    .filter(w => w.definition && JSON.stringify(w.definition).toLowerCase().includes(definition.toLowerCase()))
-}
-
-function basicSearchByGender(definition, wordmap) {
-  return (Array.isArray(wordmap) ? wordmap : Object.values(wordmap))
-    .filter(w => w.genders && JSON.stringify(w.genders).toLowerCase().includes(definition.toLowerCase()))
-}
-
-function mergedSearchByDefinition(definition, wordmap) {
-  return (Array.isArray(wordmap) ? wordmap : Object.values(wordmap))
-    .filter(w => 
-      (w.definition && JSON.stringify(w.definition).toLowerCase().includes(definition.toLowerCase())) ||
-      (w.genders && JSON.stringify(w.genders).toLowerCase().includes(definition.toLowerCase()))
-    );
-}
-
-NOUNS.fetchByDefinition = function(def) {return basicSearchByGender(def, NOUNS.FLAT)}
-VERBS.fetchByDefinition = function(def) {return basicSearchByDefinition(def, VERBS.FLAT)}
-ADJECTIVES.fetchByDefinition = function(def) {return basicSearchByDefinition(def, ADJECTIVES.FLAT)}
-ADVERBS.fetchByDefinition = function(def) {return basicSearchByDefinition(def, ADVERBS.FLAT)}
-AUXILIARIES.fetchByDefinition = function(def) {return basicSearchByDefinition(def, AUXILIARIES.FLAT)}
-PREPOSITIONS.fetchByDefinition = function(def) {return basicSearchByDefinition(def, PREPOSITIONS.FLAT)}
-PARTICLES.fetchByDefinition = function(def) {return basicSearchByDefinition(def, PARTICLES.FLAT)}
-DETERMINERS.fetchByDefinition = function(def) {return basicSearchByDefinition(def, DETERMINERS.FLAT)}
-CONJUNCTIONS.fetchByDefinition = function(def) {return basicSearchByDefinition(def, CONJUNCTIONS.FLAT)}
-ALL_WORDS.fetchByDefinition = function(def) {return mergedSearchByDefinition(def, ALL_WORDS.FLAT)}
-
-WORD_UTILS.combineGenders = function(entry) {
-  const defMap = {}
-  for (const [gender, def] of Object.entries(entry)) {
-    if (!defMap[def]) defMap[def] = []
-    defMap[def].push(gender)
-  }
-
-  const result = {}
-  for (const [def, genders] of Object.entries(defMap)) {
-    const animCheck = GENDERS.ANIMATES.FLAT.NAME.every(g => genders.includes(g))
-    const inanimCheck = GENDERS.INANIMATES.FLAT.NAME.every(g => genders.includes(g))
-    const allCheck = [...GENDERS.ANIMATES.FLAT.NAME, ...GENDERS.INANIMATES.FLAT.NAME].every(g => genders.includes(g))
-
-    if (allCheck) result[GENDERS_ALL.NAME] = def
-    else if (animCheck) result[GENDERS.ANIMATES.NAME] = def
-    else if (inanimCheck) result[GENDERS.INANIMATES.NAME] = def
-    else result[genders.join(", ")] = def
-  }
-  return result
-}
-
-modules.push("DictionaryData")
 
 // oh my god

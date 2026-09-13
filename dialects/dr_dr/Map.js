@@ -15,7 +15,7 @@ META = {
     // Update things
     // Classic draconic's updates are monitored in draconic-changes channel on discord
     // Code changes don't count as an update, unless they change the dialect in some way
-    REVISION: 8, // aka version or smth, increment on update, please do not farm revisions via minor changes
+    REVISION: 8, // aka version or smth, increment on update, please do not farm revisions via minor changes or code only changes
     LAST_UPDATED: "2026-01-13", // YYYY-MM-DD format
     STATUS: "WIP" // WIP - there be alot of changes; STABLE - the dialect is done, but there be additions sometimes (like new words or phrases); ARCHIVED - no changes will be made anymore
 }
@@ -128,15 +128,13 @@ IDS.GROUPS_UNPACKED = {
     ALL: IDS.GROUPS_UNPACKED[IDS.GENDER_GROUPS.A],
 };
 
-// ============================ CLASSES ============================
+// AUX FUNC
 
 function choice(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function randomWord(type) {
-    return choice(Object.values(DICTIONARY[type].MAP));
-}
+// ============================ CLASSES ============================
 
 class Character {
     constructor({
@@ -179,9 +177,24 @@ class Word extends Lexeme {
         if (!this.forms) return [this.word];
         return [this.word, ...this.forms.split(", ")];
     }
+
+    random() {
+        if (this.TODO_RENAME_type == null) Object.assign(this, DICTIONARY.random());
+        else Object.assign(this, DICTIONARY[this.type].random());
+        return this;
+    }
+
+    static random() {
+        const inst = Object.create(this.prototype);
+        if (this.TODO_RENAME_type == null) Object.assign(inst, DICTIONARY.random());
+        else Object.assign(inst, DICTIONARY[this.TODO_RENAME_type].random());
+        return inst;
+    }
 }
 
 class Noun extends Word {
+    static TODO_RENAME_type = IDS.WORDS.N;
+
     constructor(word, declension, gender, usage_notes = "") {
         super(word, undefined, undefined, usage_notes, IDS.WORDS.N);
         this.declension = declension;
@@ -191,56 +204,108 @@ class Noun extends Word {
             if (unpacked) for (const g of unpacked[1]) this.genders[g] = v;
             else this.genders[k] = v;
         }
-        this.definition = Object.entries(combineGenders(this.genders)).map(([k, v]) => `${k}: ${v}`).join("\n")
+        this.definition = Object.entries(combineGenders(this.genders)).map(([k, v]) => `${k}: ${v}`).join("\n");
+    }
+
+    toConjugated() {
+        return new ConjugatedNoun(this);
     }
 }
 
 class Verb extends Word {
+    static TODO_RENAME_type = IDS.WORDS.V;
+    
     constructor(word, definition, forms, usage_notes = "") {
         super(word, definition, forms, usage_notes, IDS.WORDS.V);
+    }
+
+    toConjugated() {
+        return new ConjugatedVerb(this);
     }
 }
 
 class Adjective extends Word {
+    static TODO_RENAME_type = IDS.WORDS.ADJ;
+    
     constructor(word, declension, definition, forms, usage_notes = "") {
         super(word, definition, forms, usage_notes, IDS.WORDS.ADJ);
         this.declension = declension;
     }
+
+    toConjugated() {
+        return new ConjugatedAdjective(this);
+    }
 }
 
 class Adverb extends Word {
+    static TODO_RENAME_type = IDS.WORDS.ADV;
+    
     constructor(word, definition, forms, usage_notes = "") {
         super(word, definition, forms, usage_notes, IDS.WORDS.ADV);
+    }
+
+    toConjugated() {
+        return new ConjugatedAdverb(this);
     }
 }
 
 class Auxiliary extends Word {
+    static TODO_RENAME_type = IDS.WORDS.AUX;
+    
     constructor(word, definition, forms, usage_notes = "") {
         super(word, definition, forms, usage_notes, IDS.WORDS.AUX);
+    }
+
+    toConjugated() {
+        return new ConjugatedAuxiliary(this);
     }
 }
 
 class Preposition extends Word {
+    static TODO_RENAME_type = IDS.WORDS.PP;
+    
     constructor(word, definition, usage_notes = "") {
         super(word, definition, undefined, usage_notes, IDS.WORDS.PP);
+    }
+
+    toConjugated() {
+        return new ConjugatedPreposition(this);
     }
 }
 
 class Particle extends Word {
+    static TODO_RENAME_type = IDS.WORDS.PART;
+    
     constructor(word, definition, usage_notes = "") {
         super(word, definition, undefined, usage_notes, IDS.WORDS.PART);
+    }word
+
+    toConjugated() {
+        return new ConjugatedParticle(this);
     }
 }
 
 class Determiner extends Word {
+    static TODO_RENAME_type = IDS.WORDS.DET;
+    
     constructor(word, definition, usage_notes = "") {
         super(word, definition, undefined, usage_notes, IDS.WORDS.DET);
+    }
+
+    toConjugated() {
+        return new ConjugatedDeterminer(this);
     }
 }
 
 class Conjunction extends Word {
+    static TODO_RENAME_type = IDS.WORDS.CON;
+    
     constructor(word, definition, usage_notes = "") {
         super(word, definition, undefined, usage_notes, IDS.WORDS.CON);
+    }
+
+    toConjugated() {
+        return new ConjugatedConjuction(this);
     }
 }
 
@@ -399,16 +464,16 @@ class ConjugatedVerb extends Conjugated {
 
     conjugate() {
         var root;
-        if (this.tense == IDS.TENSE.F) root = "llo " + this.word.splitForms()[this.temp_form_map[this.aspect+"-"+IDS.TENSE.NP]]
-        else root = this.word.splitForms()[this.temp_form_map[this.aspect+"-"+this.tense]]
+        if (this.tense == IDS.TENSE.F) root = "llo " + this.word.splitForms()[this.temp_form_map[this.aspect+"-"+IDS.TENSE.NP]];
+        else root = this.word.splitForms()[this.temp_form_map[this.aspect+"-"+this.tense]];
 
-        object_present = (this.object_gender && this.object_person && this.object_count)
-        subject_present = (this.subject_gender && this.subject_person && this.subject_count)
-
-        if (!object_present && !subject_present) return root
-        if (!object_present && subject_present) return AFFIXES.SUFFIXES.connect(root, AFFIXES.PREFIXES.Verb.MAP[this.object_person][this.object_count][this.object_gender])
-        if (object_present && !subject_present) return AFFIXES.PREFIXES.connect(root, AFFIXES.PREFIXES.Verb.MAP[this.subject_person][this.subject_count][this.subject_gender])
-        return AFFIXES.connect(AFFIXES.PREFIXES.Verb.MAP[this.subject_person][this.subject_count][this.subject_gender], root, AFFIXES.PREFIXES.Verb.MAP[this.object_person][this.object_count][this.object_gender])
+        object_present = (this.object_gender && this.object_person && this.object_count);
+        subject_present = (this.subject_gender && this.subject_person && this.subject_count);
+        
+        if (!object_present && !subject_present) return root;
+        if (!object_present && subject_present) return AFFIXES.PREFIXES.connect(root, AFFIXES.PREFIXES.Verb.MAP[this.subject_person][this.subject_count][this.subject_gender]);
+        if (object_present && !subject_present) return AFFIXES.SUFFIXES.connect(root, AFFIXES.SUFFIXES.Verb.MAP[this.object_person][this.object_count][this.object_gender]);
+        return AFFIXES.connect(AFFIXES.PREFIXES.Verb.MAP[this.subject_person][this.subject_count][this.subject_gender], root, AFFIXES.SUFFIXES.Verb.MAP[this.object_person][this.object_count][this.object_gender]);
     }
 
     definition(include_extras = true) {
